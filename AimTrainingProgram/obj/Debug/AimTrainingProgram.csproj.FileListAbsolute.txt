@@ -1,0 +1,16 @@
+C:\Users\choik\Desktop\3-1\응소실\team_project\AimTrainingProgram\AimTrainingProgram\bin\Debug\AimTrainingProgram.exe.config
+C:\Users\choik\Desktop\3-1\응소실\team_project\AimTrainingProgram\AimTrainingProgram\bin\Debug\AimTrainingProgram.exe
+C:\Users\choik\Desktop\3-1\응소실\team_project\AimTrainingProgram\AimTrainingProgram\bin\Debug\AimTrainingProgram.pdb
+C:\Users\choik\Desktop\3-1\응소실\team_project\AimTrainingProgram\AimTrainingProgram\obj\Debug\AimTrainingProgram.csproj.AssemblyReference.cache
+C:\Users\choik\Desktop\3-1\응소실\team_project\AimTrainingProgram\AimTrainingProgram\obj\Debug\AimTrainingProgram.PlayForm.resources
+C:\Users\choik\Desktop\3-1\응소실\team_project\AimTrainingProgram\AimTrainingProgram\obj\Debug\AimTrainingProgram.Properties.Resources.resources
+C:\Users\choik\Desktop\3-1\응소실\team_project\AimTrainingProgram\AimTrainingProgram\obj\Debug\AimTrainingProgram.csproj.GenerateResource.cache
+C:\Users\choik\Desktop\3-1\응소실\team_project\AimTrainingProgram\AimTrainingProgram\obj\Debug\AimTrainingProgram.csproj.CoreCompileInputs.cache
+C:\Users\choik\Desktop\3-1\응소실\team_project\AimTrainingProgram\AimTrainingProgram\obj\Debug\AimTrainingProgram.exe
+C:\Users\choik\Desktop\3-1\응소실\team_project\AimTrainingProgram\AimTrainingProgram\obj\Debug\AimTrainingProgram.pdb
+C:\Users\choik\Desktop\3-1\응소실\team_project\AimTrainingProgram\AimTrainingProgram\obj\Debug\AimTrainingProgram.MainForm.resources
+C:\Users\choik\Desktop\3-1\응소실\team_project\AimTrainingProgram\AimTrainingProgram\obj\Debug\AimTrainingProgram.AnalyzeForm.resources
+C:\Users\choik\Desktop\3-1\응소실\team_project\AimTrainingProgram\AimTrainingProgram\obj\Debug\AimTrainingProgram.ScoreForm.resources
+C:\Users\choik\Desktop\3-1\응소실\team_project\AimTrainingProgram\AimTrainingProgram\obj\Debug\AimTrainingProgram.SettingForm.resources
+C:\Users\choik\Desktop\3-1\응소실\team_project\AimTrainingProgram\AimTrainingProgram\obj\Debug\AimTrainingProgram.MovingForm.resources
+C:\Users\choik\Desktop\3-1\응소실\team_project\AimTrainingProgram\AimTrainingProgram\obj\Debug\AimTrainingProgram.TargetingForm.resources
