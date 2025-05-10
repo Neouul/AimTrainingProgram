@@ -39,6 +39,7 @@
             this.AimTarget = new System.Windows.Forms.PictureBox();
             this.TargetScore = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.btnRestart = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.MousePointer)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.AimTarget)).BeginInit();
             this.SuspendLayout();
@@ -106,13 +107,15 @@
             // MousePointer
             // 
             this.MousePointer.Image = global::AimTrainingProgram.Properties.Resources.pointer;
-            this.MousePointer.Location = new System.Drawing.Point(653, 374);
+            this.MousePointer.Location = new System.Drawing.Point(101, 787);
             this.MousePointer.Margin = new System.Windows.Forms.Padding(8);
             this.MousePointer.Name = "MousePointer";
             this.MousePointer.Size = new System.Drawing.Size(29, 47);
             this.MousePointer.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.MousePointer.TabIndex = 17;
             this.MousePointer.TabStop = false;
+            this.MousePointer.Visible = false;
+            this.MousePointer.Click += new System.EventHandler(this.MousePointer_Click);
             // 
             // AimTarget
             // 
@@ -125,6 +128,7 @@
             this.AimTarget.TabIndex = 16;
             this.AimTarget.TabStop = false;
             this.AimTarget.Visible = false;
+            this.AimTarget.Click += new System.EventHandler(this.AimTarget_Click);
             // 
             // TargetScore
             // 
@@ -137,11 +141,23 @@
             this.TargetScore.TabIndex = 18;
             this.TargetScore.Text = "TargetScore";
             // 
+            // btnRestart
+            // 
+            this.btnRestart.Location = new System.Drawing.Point(562, 94);
+            this.btnRestart.Name = "btnRestart";
+            this.btnRestart.Size = new System.Drawing.Size(211, 73);
+            this.btnRestart.TabIndex = 19;
+            this.btnRestart.Text = "Replay";
+            this.btnRestart.UseVisualStyleBackColor = true;
+            this.btnRestart.Visible = false;
+            this.btnRestart.Click += new System.EventHandler(this.btnRestart_Click);
+            // 
             // TargetingForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(13F, 24F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1350, 874);
+            this.Controls.Add(this.btnRestart);
             this.Controls.Add(this.TargetScore);
             this.Controls.Add(this.MousePointer);
             this.Controls.Add(this.AimTarget);
@@ -175,5 +191,6 @@
         private System.Windows.Forms.PictureBox MousePointer;
         private System.Windows.Forms.Label TargetScore;
         private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Button btnRestart;
     }
 }

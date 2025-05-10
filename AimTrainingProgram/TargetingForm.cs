@@ -16,25 +16,34 @@ namespace AimTrainingProgram
 
         private int lolSens = SettingForm.GameSensitivity;
         private int pcSens = SettingForm.ControlPanelSpeed;
-        private float sensitivityScale; // 생성자에서 설정
+        private float sensitivityScale;
 
-        Point lastMousePos;
+        private float accumulatedDx = 0;
+        private float accumulatedDy = 0;
 
-        //최강
-        private PictureBox targetImage;
+        private Point lastMousePos;
+        private Point pointerPosition = Point.Empty;
+        private Bitmap pointerBitmap = Properties.Resources.pointer;//이미지 파일
+        private Bitmap targetBitmap = Properties.Resources.target;
+        private Point targetPosition = Point.Empty;
+
         private Timer targetTimer;
         private Timer visibilityTimer;
         private int targetCount = 0;
-        public int score = 0; // 나중에 analyze form에 넘길 점수
+        public int score = 0;
         private Random random = new Random();
         private bool isTargetHit = false;
+        private bool isTargetVisible = false;
+        private bool isCursorHidden = true;
+        private int targetSize = 50; // 기본값
 
-
-
+        private string resultMessage = "";
+        private Timer resultMessageTimer;
         public TargetingForm(Form previousForm)
         {
             InitializeComponent();
             this.WindowState = FormWindowState.Maximized;
+            this.DoubleBuffered = true;
 
             if (lolSens <= 10) sensitivityScale = (lolSens / 5) / 32f;
             else if (lolSens < 55) sensitivityScale = (lolSens / 5 - 2) / 8f;
@@ -42,96 +51,116 @@ namespace AimTrainingProgram
 
             switch (pcSens)
             {
-                case 1:
-                    sensitivityScale /= 0.03125f;
-                    break;
-                case 2:
-                    sensitivityScale /= 0.125f;
-                    break;
-                case 3:
-                    sensitivityScale /= 0.25f;
-                    break;
-                case 4:
-                    sensitivityScale /= 0.5f;
-                    break;
-                case 5:
-                    sensitivityScale /= 0.75f;
-                    break;
-                case 7:
-                    sensitivityScale /= 1.5f;
-                    break;
-                case 8:
-                    sensitivityScale /= 2.0f;
-                    break;
-                case 9:
-                    sensitivityScale /= 2.5f;
-                    break;
-                case 10:
-                    sensitivityScale /= 3.0f;
-                    break;
-                case 11:
-                    sensitivityScale /= 3.5f;
-                    break;
+                case 1: sensitivityScale /= 0.03125f; break;
+                case 2: sensitivityScale /= 0.125f; break;
+                case 3: sensitivityScale /= 0.25f; break;
+                case 4: sensitivityScale /= 0.5f; break;
+                case 5: sensitivityScale /= 0.75f; break;
+                case 7: sensitivityScale /= 1.5f; break;
+                case 8: sensitivityScale /= 2.0f; break;
+                case 9: sensitivityScale /= 2.5f; break;
+                case 10: sensitivityScale /= 3.0f; break;
+                case 11: sensitivityScale /= 3.5f; break;
             }
-
-            lastMousePos = new Point(this.Width / 2, this.Height / 2);
 
             this.previousForm = previousForm;
         }
         public TargetingForm() : this(null) { }
 
-
-
-
         private void TargetingForm_Load(object sender, EventArgs e)
         {
-            // 폼 클라이언트 영역 중심 위치 계산
-            Point center = new Point(this.Width / 2, this.Height / 2);
-            // 커서 위치 설정 (스크린 좌표 기준)
-            Cursor.Position = center;
-            int pointerLeft = (this.ClientSize.Width - MousePointer.Width) / 2;
-            int pointerTop = (this.ClientSize.Height - MousePointer.Height) / 2;
-            MousePointer.Left = pointerLeft;
-            MousePointer.Top = pointerTop;
-            lastMousePos = new Point(pointerLeft, pointerTop);
+            btnRestart.Visible = false;
 
+            Point center = new Point(this.ClientSize.Width / 2, this.ClientSize.Height / 2);
+            Cursor.Position = this.PointToScreen(center);
+            pointerPosition = new Point(center.X - 20, center.Y - 20);
+            lastMousePos = center;
 
             HideCursor();
-
-            //최강
-            targetImage = new PictureBox();
-            targetImage.Size = new Size(50, 50);
-            targetImage.SizeMode = PictureBoxSizeMode.StretchImage;
-            targetImage.Image = Properties.Resources.target; // 타겟 이미지 파일 추가 필요
-            targetImage.Visible = false;
-            this.Controls.Add(targetImage);
+            this.Paint += TargetingForm_Paint;
+            this.MouseMove += SensInScreen;
+            this.MouseDown += TargetingForm_MouseDown;
 
             targetTimer = new Timer();
             visibilityTimer = new Timer();
-
             targetTimer.Tick += ShowTarget;
             visibilityTimer.Tick += HideTarget;
-
 
             switch (SettingForm.SelectedDifficulty)
             {
                 case SettingForm.Difficulty.Easy:
-                    targetTimer.Interval = 2000;     // 출력 간격 2초
-                    visibilityTimer.Interval = 1000; // 출력 쉼 1초
+                    targetTimer.Interval = 2000;
+                    visibilityTimer.Interval = 1000;
+                    targetSize = 70;
+
                     break;
                 case SettingForm.Difficulty.Normal:
                     targetTimer.Interval = 1000;
                     visibilityTimer.Interval = 700;
+                    targetSize = 50;
+
                     break;
                 case SettingForm.Difficulty.Hard:
                     targetTimer.Interval = 700;
                     visibilityTimer.Interval = 800;
+                    targetSize = 20;
+
                     break;
             }
 
             targetTimer.Start();
 
+            resultMessageTimer = new Timer();
+            resultMessageTimer.Interval = 1000; // 1초
+            resultMessageTimer.Tick += (s, ev) =>
+            {
+                resultMessage = "";
+                resultMessageTimer.Stop();
+                Invalidate(); // 메시지 지우기 위해 다시 그리기
+
+            };
         }
+
+        private void TargetingForm_Paint(object sender, PaintEventArgs e)
+        {
+            e.Graphics.InterpolationMode = System.Drawing.Drawing2D.InterpolationMode.HighQualityBicubic;
+
+            if (isTargetVisible)
+                e.Graphics.DrawImage(targetBitmap, targetPosition.X, targetPosition.Y, targetSize, targetSize);
+
+            // ✅ 마우스 포인터 이미지 비율 유지
+            int originalW = pointerBitmap.Width;
+            int originalH = pointerBitmap.Height;
+
+            float scale = 0.8f;
+            int newW = (int)(originalW * scale);
+            int newH = (int)(originalH * scale);
+
+            e.Graphics.DrawImage(pointerBitmap, pointerPosition.X, pointerPosition.Y, newW, newH);
+
+            if (!string.IsNullOrEmpty(resultMessage))
+            {
+                using (Font font = new Font("Segoe UI", 10, FontStyle.Bold))
+                {
+                    //메시지에 따라 색상 분기
+                    Color color = resultMessage == "Perfect!" ? Color.Green : Color.Red;
+
+                    using (Brush brush = new SolidBrush(color))
+                    {
+                        SizeF textSize = e.Graphics.MeasureString(resultMessage, font);
+
+                        PointF msgPosition = new PointF(
+                            targetPosition.X + targetSize / 2 - textSize.Width / 2,
+                            targetPosition.Y - textSize.Height - 2
+                        );
+
+                        e.Graphics.DrawString(resultMessage, font, brush, msgPosition);
+                    }
+                }
+            }
+        }
+
+
 
         private void ShowTarget(object sender, EventArgs e)
         {
@@ -140,46 +169,41 @@ namespace AimTrainingProgram
             if (targetCount >= 10)
             {
                 targetTimer.Stop();
-
+                btnRestart.Visible = true;
                 return;
             }
 
-            // 중앙 50% 영역 제한
             int marginX = this.ClientSize.Width / 4;
             int marginY = this.ClientSize.Height / 4;
-
-            int rangeX = this.ClientSize.Width / 2 - targetImage.Width;
-            int rangeY = this.ClientSize.Height / 2 - targetImage.Height;
+            int rangeX = this.ClientSize.Width / 2 - 50;
+            int rangeY = this.ClientSize.Height / 2 - 50;
 
             int x = random.Next(marginX, marginX + rangeX);
             int y = random.Next(marginY, marginY + rangeY);
 
-            targetImage.Location = new Point(x, y);
-            targetImage.Visible = true;
-
+            targetPosition = new Point(x, y);
+            isTargetVisible = true;
             isTargetHit = false;
-
             targetCount++;
+
             visibilityTimer.Start();
+            Invalidate();
         }
 
         private void HideTarget(object sender, EventArgs e)
         {
-            targetImage.Visible = false;
+            isTargetVisible = false;
             visibilityTimer.Stop();
+            Invalidate();
         }
-
 
         private void HideCursor()
         {
-            Bitmap bmp = new Bitmap(1, 1); // 1x1 투명 비트맵
+            Bitmap bmp = new Bitmap(1, 1);
             IntPtr ptr = bmp.GetHicon();
             Cursor transparentCursor = new Cursor(ptr);
             this.Cursor = transparentCursor;
-            //panel1.Cursor = transparentCursor;
         }
-
-        private bool isCursorHidden = true; // 현재 커서 숨겨진 상태인지 추적
 
         public void SensInScreen(object sender, MouseEventArgs e)
         {
@@ -189,31 +213,34 @@ namespace AimTrainingProgram
             float scaledDx = dx * sensitivityScale;
             float scaledDy = dy * sensitivityScale;
 
-            MousePointer.Location = new Point(
-                MousePointer.Location.X + (int)scaledDx,
-                MousePointer.Location.Y + (int)scaledDy
-            );
+            accumulatedDx += scaledDx;
+            accumulatedDy += scaledDy;
+
+            int moveX = (int)accumulatedDx;
+            int moveY = (int)accumulatedDy;
+
+            if (moveX != 0 || moveY != 0)
+            {
+                pointerPosition = new Point(pointerPosition.X + moveX, pointerPosition.Y + moveY);
+                accumulatedDx -= moveX;
+                accumulatedDy -= moveY;
+                Invalidate();
+            }
 
             lastMousePos = e.Location;
-
-            lastMousePos = e.Location;
-
-            HandleCursorVisibility(); // 이동 후 커서 상태 갱신
+            HandleCursorVisibility();
         }
 
         private void HandleCursorVisibility()
         {
-            int thresholdY = 50; // 예: 50픽셀보다 위로 가면 커서 보임
-
-            if (MousePointer.Top < thresholdY && isCursorHidden)
+            int thresholdY = 50;
+            if (pointerPosition.Y < thresholdY && isCursorHidden)
             {
-                // 커서 보이게
                 this.Cursor = Cursors.Default;
                 isCursorHidden = false;
             }
-            else if (MousePointer.Top >= thresholdY && !isCursorHidden)
+            else if (pointerPosition.Y >= thresholdY && !isCursorHidden)
             {
-                // 커서 숨기기
                 HideCursor();
                 isCursorHidden = true;
             }
@@ -221,18 +248,39 @@ namespace AimTrainingProgram
 
         private void TargetingForm_MouseDown(object sender, MouseEventArgs e)
         {
+            if (!isTargetVisible || isTargetHit) return;
 
-            if (!targetImage.Visible || isTargetHit) return;
+            Rectangle targetRect = new Rectangle(targetPosition, new Size(targetSize, targetSize));
 
-            Point pointerTopLeft = MousePointer.Location;
-
-            // 좌상단 모서리가 타겟 이미지 안에 들어가 있는지 확인
-            if (targetImage.Bounds.Contains(pointerTopLeft))
+            if (targetRect.Contains(pointerPosition))
             {
                 score++;
                 TargetScore.Text = $"점수: {score}/10";
                 isTargetHit = true;
+                resultMessage = "Perfect!";
             }
+            else
+            {
+                resultMessage = "Miss..";
+            }
+
+            resultMessageTimer.Stop();
+            resultMessageTimer.Start();
+            Invalidate(); // 메시지 표시 위해 다시 그리기
+        }
+
+        private void btnRestart_Click(object sender, EventArgs e)
+        {
+            targetCount = 0;
+            score = 0;
+            isTargetHit = false;
+            TargetScore.Text = "점수: 0/10";
+
+            btnRestart.Visible = false;
+            isTargetVisible = false;
+            visibilityTimer.Stop();
+            targetTimer.Start();
+            Invalidate();
         }
 
         private void btnBack_Click(object sender, EventArgs e)
@@ -256,7 +304,6 @@ namespace AimTrainingProgram
             PlayForm playForm = new PlayForm(this);
             playForm.Show();
             this.Hide();
-
         }
 
         private void btnScore_Click(object sender, EventArgs e)
@@ -264,7 +311,6 @@ namespace AimTrainingProgram
             ScoreForm scoreForm = new ScoreForm(this);
             scoreForm.Show();
             this.Hide();
-
         }
 
         private void btnAnalyze_Click(object sender, EventArgs e)
@@ -272,7 +318,6 @@ namespace AimTrainingProgram
             AnalyzeForm analyzeForm = new AnalyzeForm(this);
             analyzeForm.Show();
             this.Hide();
-
         }
 
         private void btnSetting_Click(object sender, EventArgs e)
@@ -280,9 +325,16 @@ namespace AimTrainingProgram
             SettingForm settingForm = new SettingForm(this);
             settingForm.Show();
             this.Hide();
+        }
+
+        private void MousePointer_Click(object sender, EventArgs e)
+        {
 
         }
 
+        private void AimTarget_Click(object sender, EventArgs e)
+        {
 
+        }
     }
 }
