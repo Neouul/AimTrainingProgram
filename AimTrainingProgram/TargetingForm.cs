@@ -94,8 +94,11 @@ namespace AimTrainingProgram
             //panel1.Cursor = transparentCursor;
         }
 
+<<<<<<< HEAD
         private bool isCursorHidden = true; // 현재 커서 숨겨진 상태인지 추적
 
+=======
+>>>>>>> 8d95c9cc9884dcd18eaf234a17f717d5641dc716
         public void SensInScreen(object sender, MouseEventArgs e)
         {
             int dx = e.X - lastMousePos.X;
@@ -110,6 +113,7 @@ namespace AimTrainingProgram
             );
 
             lastMousePos = e.Location;
+<<<<<<< HEAD
 
             lastMousePos = e.Location;
 
@@ -132,6 +136,8 @@ namespace AimTrainingProgram
                 HideCursor();
                 isCursorHidden = true;
             }
+=======
+>>>>>>> 8d95c9cc9884dcd18eaf234a17f717d5641dc716
         }
 
         private void btnBack_Click(object sender, EventArgs e)

@@ -36,16 +36,24 @@
             this.btnPlay = new System.Windows.Forms.Button();
             this.MousePointer = new System.Windows.Forms.PictureBox();
             this.AimTarget = new System.Windows.Forms.PictureBox();
+<<<<<<< HEAD
             this.TargetScore = new System.Windows.Forms.Label();
+=======
+>>>>>>> 8d95c9cc9884dcd18eaf234a17f717d5641dc716
             ((System.ComponentModel.ISupportInitialize)(this.MousePointer)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.AimTarget)).BeginInit();
             this.SuspendLayout();
             // 
             // btnHome
             // 
+<<<<<<< HEAD
             this.btnHome.Location = new System.Drawing.Point(29, 13);
+=======
+            this.btnHome.Location = new System.Drawing.Point(18, 8);
+            this.btnHome.Margin = new System.Windows.Forms.Padding(2);
+>>>>>>> 8d95c9cc9884dcd18eaf234a17f717d5641dc716
             this.btnHome.Name = "btnHome";
-            this.btnHome.Size = new System.Drawing.Size(203, 75);
+            this.btnHome.Size = new System.Drawing.Size(125, 47);
             this.btnHome.TabIndex = 5;
             this.btnHome.Text = "홈";
             this.btnHome.UseVisualStyleBackColor = true;
@@ -53,9 +61,14 @@
             // 
             // btnBack
             // 
+<<<<<<< HEAD
             this.btnBack.Location = new System.Drawing.Point(1107, 13);
+=======
+            this.btnBack.Location = new System.Drawing.Point(681, 8);
+            this.btnBack.Margin = new System.Windows.Forms.Padding(2);
+>>>>>>> 8d95c9cc9884dcd18eaf234a17f717d5641dc716
             this.btnBack.Name = "btnBack";
-            this.btnBack.Size = new System.Drawing.Size(203, 75);
+            this.btnBack.Size = new System.Drawing.Size(125, 47);
             this.btnBack.TabIndex = 4;
             this.btnBack.Text = "뒤로가기";
             this.btnBack.UseVisualStyleBackColor = true;
@@ -63,9 +76,14 @@
             // 
             // btnSetting
             // 
+<<<<<<< HEAD
             this.btnSetting.Location = new System.Drawing.Point(890, 13);
+=======
+            this.btnSetting.Location = new System.Drawing.Point(548, 8);
+            this.btnSetting.Margin = new System.Windows.Forms.Padding(2);
+>>>>>>> 8d95c9cc9884dcd18eaf234a17f717d5641dc716
             this.btnSetting.Name = "btnSetting";
-            this.btnSetting.Size = new System.Drawing.Size(211, 75);
+            this.btnSetting.Size = new System.Drawing.Size(130, 47);
             this.btnSetting.TabIndex = 15;
             this.btnSetting.Text = "Settings";
             this.btnSetting.UseVisualStyleBackColor = true;
@@ -73,9 +91,14 @@
             // 
             // btnAnalyze
             // 
+<<<<<<< HEAD
             this.btnAnalyze.Location = new System.Drawing.Point(673, 13);
+=======
+            this.btnAnalyze.Location = new System.Drawing.Point(414, 8);
+            this.btnAnalyze.Margin = new System.Windows.Forms.Padding(2);
+>>>>>>> 8d95c9cc9884dcd18eaf234a17f717d5641dc716
             this.btnAnalyze.Name = "btnAnalyze";
-            this.btnAnalyze.Size = new System.Drawing.Size(211, 75);
+            this.btnAnalyze.Size = new System.Drawing.Size(130, 47);
             this.btnAnalyze.TabIndex = 14;
             this.btnAnalyze.Text = "Analyze";
             this.btnAnalyze.UseVisualStyleBackColor = true;
@@ -83,9 +106,14 @@
             // 
             // btnScore
             // 
+<<<<<<< HEAD
             this.btnScore.Location = new System.Drawing.Point(457, 13);
+=======
+            this.btnScore.Location = new System.Drawing.Point(281, 8);
+            this.btnScore.Margin = new System.Windows.Forms.Padding(2);
+>>>>>>> 8d95c9cc9884dcd18eaf234a17f717d5641dc716
             this.btnScore.Name = "btnScore";
-            this.btnScore.Size = new System.Drawing.Size(211, 75);
+            this.btnScore.Size = new System.Drawing.Size(130, 47);
             this.btnScore.TabIndex = 13;
             this.btnScore.Text = "Score";
             this.btnScore.UseVisualStyleBackColor = true;
@@ -93,9 +121,14 @@
             // 
             // btnPlay
             // 
+<<<<<<< HEAD
             this.btnPlay.Location = new System.Drawing.Point(239, 13);
+=======
+            this.btnPlay.Location = new System.Drawing.Point(147, 8);
+            this.btnPlay.Margin = new System.Windows.Forms.Padding(2);
+>>>>>>> 8d95c9cc9884dcd18eaf234a17f717d5641dc716
             this.btnPlay.Name = "btnPlay";
-            this.btnPlay.Size = new System.Drawing.Size(211, 75);
+            this.btnPlay.Size = new System.Drawing.Size(130, 47);
             this.btnPlay.TabIndex = 12;
             this.btnPlay.Text = "Play";
             this.btnPlay.UseVisualStyleBackColor = true;
@@ -104,8 +137,12 @@
             // MousePointer
             // 
             this.MousePointer.Image = global::AimTrainingProgram.Properties.Resources.pointer;
+<<<<<<< HEAD
             this.MousePointer.Location = new System.Drawing.Point(653, 374);
             this.MousePointer.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+=======
+            this.MousePointer.Location = new System.Drawing.Point(402, 234);
+>>>>>>> 8d95c9cc9884dcd18eaf234a17f717d5641dc716
             this.MousePointer.Name = "MousePointer";
             this.MousePointer.Size = new System.Drawing.Size(29, 47);
             this.MousePointer.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -115,14 +152,21 @@
             // AimTarget
             // 
             this.AimTarget.Image = global::AimTrainingProgram.Properties.Resources.target;
+<<<<<<< HEAD
             this.AimTarget.Location = new System.Drawing.Point(619, 237);
             this.AimTarget.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.AimTarget.Name = "AimTarget";
             this.AimTarget.Size = new System.Drawing.Size(81, 80);
+=======
+            this.AimTarget.Location = new System.Drawing.Point(381, 148);
+            this.AimTarget.Name = "AimTarget";
+            this.AimTarget.Size = new System.Drawing.Size(50, 50);
+>>>>>>> 8d95c9cc9884dcd18eaf234a17f717d5641dc716
             this.AimTarget.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.AimTarget.TabIndex = 16;
             this.AimTarget.TabStop = false;
             // 
+<<<<<<< HEAD
             // TargetScore
             // 
             this.TargetScore.AutoSize = true;
@@ -133,12 +177,18 @@
             this.TargetScore.TabIndex = 18;
             this.TargetScore.Text = "TargetScore";
             // 
+=======
+>>>>>>> 8d95c9cc9884dcd18eaf234a17f717d5641dc716
             // TargetingForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(13F, 24F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+<<<<<<< HEAD
             this.ClientSize = new System.Drawing.Size(1350, 874);
             this.Controls.Add(this.TargetScore);
+=======
+            this.ClientSize = new System.Drawing.Size(831, 546);
+>>>>>>> 8d95c9cc9884dcd18eaf234a17f717d5641dc716
             this.Controls.Add(this.MousePointer);
             this.Controls.Add(this.AimTarget);
             this.Controls.Add(this.btnSetting);
@@ -147,6 +197,7 @@
             this.Controls.Add(this.btnPlay);
             this.Controls.Add(this.btnHome);
             this.Controls.Add(this.btnBack);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "TargetingForm";
             this.Text = "TargetingForm";
             this.Load += new System.EventHandler(this.TargetingForm_Load);
@@ -168,6 +219,9 @@
         private System.Windows.Forms.Button btnPlay;
         private System.Windows.Forms.PictureBox AimTarget;
         private System.Windows.Forms.PictureBox MousePointer;
+<<<<<<< HEAD
         private System.Windows.Forms.Label TargetScore;
+=======
+>>>>>>> 8d95c9cc9884dcd18eaf234a17f717d5641dc716
     }
 }
