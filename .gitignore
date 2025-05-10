@@ -8,3 +8,5 @@
 *.dll
 *.log
 *.vsidx
+bin/
+obj/
