@@ -10,12 +10,25 @@ using System.Windows.Forms;
 
 namespace AimTrainingProgram
 {
+
     public partial class SettingForm: Form
     {
         private Form previousForm;
 
         public static int GameSensitivity;
         public static int ControlPanelSpeed;
+        public enum Difficulty
+        {
+            Easy,
+            Normal,
+            Hard
+        }
+
+        public static string LastPcSens = "";
+        public static string LastGameSens = "";
+        public static string LastSelectedCombo = "";
+
+        public static Difficulty SelectedDifficulty = Difficulty.Easy;
 
         public SettingForm(Form previous)
         {
@@ -23,11 +36,11 @@ namespace AimTrainingProgram
             this.WindowState = FormWindowState.Maximized;
 
             previousForm = previous;
+
+
         }
 
         public SettingForm() : this(null) { }
-
-
 
 
 
@@ -51,7 +64,18 @@ namespace AimTrainingProgram
 
         private void SettingForm_Load(object sender, EventArgs e)
         {
+            PcSens.Text = LastPcSens;
+            GameSens.Text = LastGameSens;
+            comboBox1.Text = LastSelectedCombo;
+            comboBox1.SelectedItem = LastSelectedCombo;
 
+
+            switch (SelectedDifficulty)
+            {
+                case Difficulty.Easy: radioEasy.Checked = true; break;
+                case Difficulty.Normal: radioNormal.Checked = true; break;
+                case Difficulty.Hard: radioHard.Checked = true; break;
+            }
         }
 
         private void btnPlay_Click(object sender, EventArgs e)
@@ -97,6 +121,39 @@ namespace AimTrainingProgram
 
             if (int.TryParse(GameSens.Text, out int value2))
                 SettingForm.GameSensitivity = value2;
+
+            LastPcSens = PcSens.Text;
+            LastGameSens = GameSens.Text;
+            LastSelectedCombo = comboBox1.Text;
+
+            if (radioEasy.Checked)
+                SelectedDifficulty = Difficulty.Easy;
+            else if (radioNormal.Checked)
+                SelectedDifficulty = Difficulty.Normal;
+            else if (radioHard.Checked)
+                SelectedDifficulty = Difficulty.Hard;
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void saveBtn2_Click(object sender, EventArgs e)
+        {
+            if (int.TryParse(PcSens.Text, out int value))
+                ControlPanelSpeed = value;
+
+            if (int.TryParse(GameSens.Text, out int value2))
+                GameSensitivity = value2;
+
+            // 라디오 버튼 상태 저장
+            if (radioEasy.Checked)
+                SelectedDifficulty = Difficulty.Easy;
+            else if (radioNormal.Checked)
+                SelectedDifficulty = Difficulty.Normal;
+            else if (radioHard.Checked)
+                SelectedDifficulty = Difficulty.Hard;
         }
     }
 }

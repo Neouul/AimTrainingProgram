@@ -9,7 +9,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace AimTrainingProgram
-{    public partial class TargetingForm: Form
+{
+    public partial class TargetingForm : Form
     {
         private Form previousForm;
 
@@ -18,6 +19,16 @@ namespace AimTrainingProgram
         private float sensitivityScale; // 생성자에서 설정
 
         Point lastMousePos;
+
+        //최강
+        private PictureBox targetImage;
+        private Timer targetTimer;
+        private Timer visibilityTimer;
+        private int targetCount = 0;
+        public int score = 0; // 나중에 analyze form에 넘길 점수
+        private Random random = new Random();
+        private bool isTargetHit = false;
+
 
 
         public TargetingForm(Form previousForm)
@@ -70,6 +81,8 @@ namespace AimTrainingProgram
         public TargetingForm() : this(null) { }
 
 
+
+
         private void TargetingForm_Load(object sender, EventArgs e)
         {
             // 폼 클라이언트 영역 중심 위치 계산
@@ -82,8 +95,80 @@ namespace AimTrainingProgram
             MousePointer.Top = pointerTop;
             lastMousePos = new Point(pointerLeft, pointerTop);
 
+
             HideCursor();
+
+            //최강
+            targetImage = new PictureBox();
+            targetImage.Size = new Size(50, 50);
+            targetImage.SizeMode = PictureBoxSizeMode.StretchImage;
+            targetImage.Image = Properties.Resources.target; // 타겟 이미지 파일 추가 필요
+            targetImage.Visible = false;
+            this.Controls.Add(targetImage);
+
+            targetTimer = new Timer();
+            visibilityTimer = new Timer();
+
+            targetTimer.Tick += ShowTarget;
+            visibilityTimer.Tick += HideTarget;
+
+
+            switch (SettingForm.SelectedDifficulty)
+            {
+                case SettingForm.Difficulty.Easy:
+                    targetTimer.Interval = 2000;     // 출력 간격 2초
+                    visibilityTimer.Interval = 1000; // 출력 쉼 1초
+                    break;
+                case SettingForm.Difficulty.Normal:
+                    targetTimer.Interval = 1000;
+                    visibilityTimer.Interval = 700;
+                    break;
+                case SettingForm.Difficulty.Hard:
+                    targetTimer.Interval = 700;
+                    visibilityTimer.Interval = 800;
+                    break;
+            }
+
+            targetTimer.Start();
+
         }
+
+        private void ShowTarget(object sender, EventArgs e)
+        {
+            visibilityTimer.Stop();
+
+            if (targetCount >= 10)
+            {
+                targetTimer.Stop();
+
+                return;
+            }
+
+            // 중앙 50% 영역 제한
+            int marginX = this.ClientSize.Width / 4;
+            int marginY = this.ClientSize.Height / 4;
+
+            int rangeX = this.ClientSize.Width / 2 - targetImage.Width;
+            int rangeY = this.ClientSize.Height / 2 - targetImage.Height;
+
+            int x = random.Next(marginX, marginX + rangeX);
+            int y = random.Next(marginY, marginY + rangeY);
+
+            targetImage.Location = new Point(x, y);
+            targetImage.Visible = true;
+
+            isTargetHit = false;
+
+            targetCount++;
+            visibilityTimer.Start();
+        }
+
+        private void HideTarget(object sender, EventArgs e)
+        {
+            targetImage.Visible = false;
+            visibilityTimer.Stop();
+        }
+
 
         private void HideCursor()
         {
@@ -94,11 +179,8 @@ namespace AimTrainingProgram
             //panel1.Cursor = transparentCursor;
         }
 
-<<<<<<< HEAD
         private bool isCursorHidden = true; // 현재 커서 숨겨진 상태인지 추적
 
-=======
->>>>>>> 8d95c9cc9884dcd18eaf234a17f717d5641dc716
         public void SensInScreen(object sender, MouseEventArgs e)
         {
             int dx = e.X - lastMousePos.X;
@@ -113,7 +195,6 @@ namespace AimTrainingProgram
             );
 
             lastMousePos = e.Location;
-<<<<<<< HEAD
 
             lastMousePos = e.Location;
 
@@ -136,8 +217,22 @@ namespace AimTrainingProgram
                 HideCursor();
                 isCursorHidden = true;
             }
-=======
->>>>>>> 8d95c9cc9884dcd18eaf234a17f717d5641dc716
+        }
+
+        private void TargetingForm_MouseDown(object sender, MouseEventArgs e)
+        {
+
+            if (!targetImage.Visible || isTargetHit) return;
+
+            Point pointerTopLeft = MousePointer.Location;
+
+            // 좌상단 모서리가 타겟 이미지 안에 들어가 있는지 확인
+            if (targetImage.Bounds.Contains(pointerTopLeft))
+            {
+                score++;
+                TargetScore.Text = $"점수: {score}/10";
+                isTargetHit = true;
+            }
         }
 
         private void btnBack_Click(object sender, EventArgs e)
@@ -187,5 +282,7 @@ namespace AimTrainingProgram
             this.Hide();
 
         }
+
+
     }
 }
