@@ -72,5 +72,10 @@ namespace AimTrainingProgram
             this.Hide();
 
         }
+
+        private void MovingForm_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
