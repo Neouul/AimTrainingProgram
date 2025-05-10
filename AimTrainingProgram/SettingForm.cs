@@ -14,6 +14,9 @@ namespace AimTrainingProgram
     {
         private Form previousForm;
 
+        public static int GameSensitivity;
+        public static int ControlPanelSpeed;
+
         public SettingForm(Form previous)
         {
             InitializeComponent();
@@ -73,6 +76,27 @@ namespace AimTrainingProgram
             analyzeForm.Show();
             this.Hide();
 
+        }
+
+        private void PcSens_Leave(object sender, EventArgs e)
+        {
+            if (int.TryParse(PcSens.Text, out int value))
+                SettingForm.ControlPanelSpeed = value;
+        }
+
+        private void GameSens_Leave(object sender, EventArgs e)
+        {
+            if (int.TryParse(GameSens.Text, out int value))
+                SettingForm.GameSensitivity = value;
+        }
+
+        private void saveBtn_Click(object sender, EventArgs e)
+        {
+            if (int.TryParse(PcSens.Text, out int value))
+                SettingForm.ControlPanelSpeed = value;
+
+            if (int.TryParse(GameSens.Text, out int value2))
+                SettingForm.GameSensitivity = value2;
         }
     }
 }
