@@ -36,7 +36,7 @@
             // 
             // btnBack
             // 
-            this.btnBack.Location = new System.Drawing.Point(381, 0);
+            this.btnBack.Location = new System.Drawing.Point(960, 12);
             this.btnBack.Name = "btnBack";
             this.btnBack.Size = new System.Drawing.Size(203, 64);
             this.btnBack.TabIndex = 0;
@@ -46,7 +46,7 @@
             // 
             // btnHome
             // 
-            this.btnHome.Location = new System.Drawing.Point(590, 0);
+            this.btnHome.Location = new System.Drawing.Point(12, 12);
             this.btnHome.Name = "btnHome";
             this.btnHome.Size = new System.Drawing.Size(203, 64);
             this.btnHome.TabIndex = 1;

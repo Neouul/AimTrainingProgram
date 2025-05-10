@@ -3,40 +3,44 @@
   "WorkspaceRootPath": "C:\\Users\\choik\\Desktop\\3-1\\\uC751\uC18C\uC2E4\\team_project\\AimTrainingProgram\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{2ED088AC-BFDC-4FBD-A241-8672BCFA3E88}|AimTrainingProgram\\AimTrainingProgram.csproj|C:\\Users\\choik\\Desktop\\3-1\\\uC751\uC18C\uC2E4\\team_project\\AimTrainingProgram\\aimtrainingprogram\\movingform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{2ED088AC-BFDC-4FBD-A241-8672BCFA3E88}|AimTrainingProgram\\AimTrainingProgram.csproj|solutionrelative:aimtrainingprogram\\movingform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{2ED088AC-BFDC-4FBD-A241-8672BCFA3E88}|AimTrainingProgram\\AimTrainingProgram.csproj|C:\\Users\\choik\\Desktop\\3-1\\\uC751\uC18C\uC2E4\\team_project\\AimTrainingProgram\\aimtrainingprogram\\settingform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{2ED088AC-BFDC-4FBD-A241-8672BCFA3E88}|AimTrainingProgram\\AimTrainingProgram.csproj|solutionrelative:aimtrainingprogram\\settingform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{2ED088AC-BFDC-4FBD-A241-8672BCFA3E88}|AimTrainingProgram\\AimTrainingProgram.csproj|c:\\users\\choik\\desktop\\3-1\\\uC751\uC18C\uC2E4\\team_project\\aimtrainingprogram\\aimtrainingprogram\\playform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{2ED088AC-BFDC-4FBD-A241-8672BCFA3E88}|AimTrainingProgram\\AimTrainingProgram.csproj|C:\\Users\\choik\\Desktop\\3-1\\\uC751\uC18C\uC2E4\\team_project\\AimTrainingProgram\\aimtrainingprogram\\playform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{2ED088AC-BFDC-4FBD-A241-8672BCFA3E88}|AimTrainingProgram\\AimTrainingProgram.csproj|solutionrelative:aimtrainingprogram\\playform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2ED088AC-BFDC-4FBD-A241-8672BCFA3E88}|AimTrainingProgram\\AimTrainingProgram.csproj|C:\\Users\\choik\\Desktop\\3-1\\\uC751\uC18C\uC2E4\\team_project\\AimTrainingProgram\\aimtrainingprogram\\scoreform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{2ED088AC-BFDC-4FBD-A241-8672BCFA3E88}|AimTrainingProgram\\AimTrainingProgram.csproj|solutionrelative:aimtrainingprogram\\scoreform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2ED088AC-BFDC-4FBD-A241-8672BCFA3E88}|AimTrainingProgram\\AimTrainingProgram.csproj|C:\\Users\\choik\\Desktop\\3-1\\\uC751\uC18C\uC2E4\\team_project\\AimTrainingProgram\\aimtrainingprogram\\targetingform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{2ED088AC-BFDC-4FBD-A241-8672BCFA3E88}|AimTrainingProgram\\AimTrainingProgram.csproj|solutionrelative:aimtrainingprogram\\targetingform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
       "AbsoluteMoniker": "D:0:0:{2ED088AC-BFDC-4FBD-A241-8672BCFA3E88}|AimTrainingProgram\\AimTrainingProgram.csproj|C:\\Users\\choik\\Desktop\\3-1\\\uC751\uC18C\uC2E4\\team_project\\AimTrainingProgram\\aimtrainingprogram\\playform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{2ED088AC-BFDC-4FBD-A241-8672BCFA3E88}|AimTrainingProgram\\AimTrainingProgram.csproj|solutionrelative:aimtrainingprogram\\playform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{2ED088AC-BFDC-4FBD-A241-8672BCFA3E88}|AimTrainingProgram\\AimTrainingProgram.csproj|C:\\Users\\choik\\Desktop\\3-1\\\uC751\uC18C\uC2E4\\team_project\\AimTrainingProgram\\aimtrainingprogram\\targetingform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2ED088AC-BFDC-4FBD-A241-8672BCFA3E88}|AimTrainingProgram\\AimTrainingProgram.csproj|solutionrelative:aimtrainingprogram\\targetingform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{2ED088AC-BFDC-4FBD-A241-8672BCFA3E88}|AimTrainingProgram\\AimTrainingProgram.csproj|c:\\users\\choik\\desktop\\3-1\\\uC751\uC18C\uC2E4\\team_project\\aimtrainingprogram\\aimtrainingprogram\\movingform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{2ED088AC-BFDC-4FBD-A241-8672BCFA3E88}|AimTrainingProgram\\AimTrainingProgram.csproj|solutionrelative:aimtrainingprogram\\movingform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
       "AbsoluteMoniker": "D:0:0:{2ED088AC-BFDC-4FBD-A241-8672BCFA3E88}|AimTrainingProgram\\AimTrainingProgram.csproj|C:\\Users\\choik\\Desktop\\3-1\\\uC751\uC18C\uC2E4\\team_project\\AimTrainingProgram\\aimtrainingprogram\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{2ED088AC-BFDC-4FBD-A241-8672BCFA3E88}|AimTrainingProgram\\AimTrainingProgram.csproj|solutionrelative:aimtrainingprogram\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{2ED088AC-BFDC-4FBD-A241-8672BCFA3E88}|AimTrainingProgram\\AimTrainingProgram.csproj|C:\\Users\\choik\\Desktop\\3-1\\\uC751\uC18C\uC2E4\\team_project\\AimTrainingProgram\\aimtrainingprogram\\analyzeform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{2ED088AC-BFDC-4FBD-A241-8672BCFA3E88}|AimTrainingProgram\\AimTrainingProgram.csproj|solutionrelative:aimtrainingprogram\\analyzeform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2ED088AC-BFDC-4FBD-A241-8672BCFA3E88}|AimTrainingProgram\\AimTrainingProgram.csproj|C:\\Users\\choik\\Desktop\\3-1\\\uC751\uC18C\uC2E4\\team_project\\AimTrainingProgram\\aimtrainingprogram\\targetingform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2ED088AC-BFDC-4FBD-A241-8672BCFA3E88}|AimTrainingProgram\\AimTrainingProgram.csproj|solutionrelative:aimtrainingprogram\\targetingform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{2ED088AC-BFDC-4FBD-A241-8672BCFA3E88}|AimTrainingProgram\\AimTrainingProgram.csproj|C:\\Users\\choik\\Desktop\\3-1\\\uC751\uC18C\uC2E4\\team_project\\AimTrainingProgram\\aimtrainingprogram\\movingform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{2ED088AC-BFDC-4FBD-A241-8672BCFA3E88}|AimTrainingProgram\\AimTrainingProgram.csproj|solutionrelative:aimtrainingprogram\\movingform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{2ED088AC-BFDC-4FBD-A241-8672BCFA3E88}|AimTrainingProgram\\AimTrainingProgram.csproj|C:\\Users\\choik\\Desktop\\3-1\\\uC751\uC18C\uC2E4\\team_project\\AimTrainingProgram\\aimtrainingprogram\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2ED088AC-BFDC-4FBD-A241-8672BCFA3E88}|AimTrainingProgram\\AimTrainingProgram.csproj|solutionrelative:aimtrainingprogram\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{2ED088AC-BFDC-4FBD-A241-8672BCFA3E88}|AimTrainingProgram\\AimTrainingProgram.csproj|C:\\Users\\choik\\Desktop\\3-1\\\uC751\uC18C\uC2E4\\team_project\\AimTrainingProgram\\aimtrainingprogram\\settingform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{2ED088AC-BFDC-4FBD-A241-8672BCFA3E88}|AimTrainingProgram\\AimTrainingProgram.csproj|solutionrelative:aimtrainingprogram\\settingform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{2ED088AC-BFDC-4FBD-A241-8672BCFA3E88}|AimTrainingProgram\\AimTrainingProgram.csproj|C:\\Users\\choik\\Desktop\\3-1\\\uC751\uC18C\uC2E4\\team_project\\AimTrainingProgram\\aimtrainingprogram\\targetingform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{2ED088AC-BFDC-4FBD-A241-8672BCFA3E88}|AimTrainingProgram\\AimTrainingProgram.csproj|solutionrelative:aimtrainingprogram\\targetingform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
       "AbsoluteMoniker": "D:0:0:{2ED088AC-BFDC-4FBD-A241-8672BCFA3E88}|AimTrainingProgram\\AimTrainingProgram.csproj|C:\\Users\\choik\\Desktop\\3-1\\\uC751\uC18C\uC2E4\\team_project\\AimTrainingProgram\\aimtrainingprogram\\settingform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -47,20 +51,20 @@
       "RelativeMoniker": "D:0:0:{2ED088AC-BFDC-4FBD-A241-8672BCFA3E88}|AimTrainingProgram\\AimTrainingProgram.csproj|solutionrelative:aimtrainingprogram\\scoreform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{2ED088AC-BFDC-4FBD-A241-8672BCFA3E88}|AimTrainingProgram\\AimTrainingProgram.csproj|C:\\Users\\choik\\Desktop\\3-1\\\uC751\uC18C\uC2E4\\team_project\\AimTrainingProgram\\aimtrainingprogram\\scoreform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{2ED088AC-BFDC-4FBD-A241-8672BCFA3E88}|AimTrainingProgram\\AimTrainingProgram.csproj|solutionrelative:aimtrainingprogram\\scoreform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{2ED088AC-BFDC-4FBD-A241-8672BCFA3E88}|AimTrainingProgram\\AimTrainingProgram.csproj|c:\\users\\choik\\desktop\\3-1\\\uC751\uC18C\uC2E4\\team_project\\aimtrainingprogram\\aimtrainingprogram\\app.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "RelativeMoniker": "D:0:0:{2ED088AC-BFDC-4FBD-A241-8672BCFA3E88}|AimTrainingProgram\\AimTrainingProgram.csproj|solutionrelative:aimtrainingprogram\\app.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2ED088AC-BFDC-4FBD-A241-8672BCFA3E88}|AimTrainingProgram\\AimTrainingProgram.csproj|C:\\Users\\choik\\Desktop\\3-1\\\uC751\uC18C\uC2E4\\team_project\\AimTrainingProgram\\aimtrainingprogram\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2ED088AC-BFDC-4FBD-A241-8672BCFA3E88}|AimTrainingProgram\\AimTrainingProgram.csproj|solutionrelative:aimtrainingprogram\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{2ED088AC-BFDC-4FBD-A241-8672BCFA3E88}|AimTrainingProgram\\AimTrainingProgram.csproj|C:\\Users\\choik\\Desktop\\3-1\\\uC751\uC18C\uC2E4\\team_project\\AimTrainingProgram\\aimtrainingprogram\\analyzeform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{2ED088AC-BFDC-4FBD-A241-8672BCFA3E88}|AimTrainingProgram\\AimTrainingProgram.csproj|solutionrelative:aimtrainingprogram\\analyzeform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{2ED088AC-BFDC-4FBD-A241-8672BCFA3E88}|AimTrainingProgram\\AimTrainingProgram.csproj|C:\\Users\\choik\\Desktop\\3-1\\\uC751\uC18C\uC2E4\\team_project\\AimTrainingProgram\\aimtrainingprogram\\analyzeform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{2ED088AC-BFDC-4FBD-A241-8672BCFA3E88}|AimTrainingProgram\\AimTrainingProgram.csproj|solutionrelative:aimtrainingprogram\\analyzeform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{2ED088AC-BFDC-4FBD-A241-8672BCFA3E88}|AimTrainingProgram\\AimTrainingProgram.csproj|C:\\Users\\choik\\Desktop\\3-1\\\uC751\uC18C\uC2E4\\team_project\\AimTrainingProgram\\aimtrainingprogram\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2ED088AC-BFDC-4FBD-A241-8672BCFA3E88}|AimTrainingProgram\\AimTrainingProgram.csproj|solutionrelative:aimtrainingprogram\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{2ED088AC-BFDC-4FBD-A241-8672BCFA3E88}|AimTrainingProgram\\AimTrainingProgram.csproj|C:\\Users\\choik\\Desktop\\3-1\\\uC751\uC18C\uC2E4\\team_project\\AimTrainingProgram\\aimtrainingprogram\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2ED088AC-BFDC-4FBD-A241-8672BCFA3E88}|AimTrainingProgram\\AimTrainingProgram.csproj|solutionrelative:aimtrainingprogram\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{2ED088AC-BFDC-4FBD-A241-8672BCFA3E88}|AimTrainingProgram\\AimTrainingProgram.csproj|C:\\Users\\choik\\Desktop\\3-1\\\uC751\uC18C\uC2E4\\team_project\\AimTrainingProgram\\aimtrainingprogram\\settingform.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -92,7 +96,7 @@
               "RelativeDocumentMoniker": "AimTrainingProgram\\PlayForm.cs",
               "ToolTip": "C:\\Users\\choik\\Desktop\\3-1\\\uC751\uC18C\uC2E4\\team_project\\AimTrainingProgram\\AimTrainingProgram\\PlayForm.cs",
               "RelativeToolTip": "AimTrainingProgram\\PlayForm.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAIAAAAAAAAAAIAwwBkAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-05-05T08:18:38.575Z",
               "IsPinned": true,
@@ -112,44 +116,43 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "TargetingForm.cs",
-              "DocumentMoniker": "C:\\Users\\choik\\Desktop\\3-1\\\uC751\uC18C\uC2E4\\team_project\\AimTrainingProgram\\AimTrainingProgram\\TargetingForm.cs",
-              "RelativeDocumentMoniker": "AimTrainingProgram\\TargetingForm.cs",
-              "ToolTip": "C:\\Users\\choik\\Desktop\\3-1\\\uC751\uC18C\uC2E4\\team_project\\AimTrainingProgram\\AimTrainingProgram\\TargetingForm.cs",
-              "RelativeToolTip": "AimTrainingProgram\\TargetingForm.cs",
-              "ViewState": "AgIAAAwAAAAAAAAAAAAAABUAAAAKAAAAAAAAAA==",
+              "DocumentIndex": 2,
+              "Title": "ScoreForm.cs [\uB514\uC790\uC778]",
+              "DocumentMoniker": "C:\\Users\\choik\\Desktop\\3-1\\\uC751\uC18C\uC2E4\\team_project\\AimTrainingProgram\\AimTrainingProgram\\ScoreForm.cs",
+              "RelativeDocumentMoniker": "AimTrainingProgram\\ScoreForm.cs",
+              "ToolTip": "C:\\Users\\choik\\Desktop\\3-1\\\uC751\uC18C\uC2E4\\team_project\\AimTrainingProgram\\AimTrainingProgram\\ScoreForm.cs [\uB514\uC790\uC778]",
+              "RelativeToolTip": "AimTrainingProgram\\ScoreForm.cs [\uB514\uC790\uC778]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-05T14:43:33.051Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-05T14:04:54.678Z",
+              "EditorCaption": " [\uB514\uC790\uC778]"
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "MovingForm.cs [\uB514\uC790\uC778]",
-              "DocumentMoniker": "C:\\Users\\choik\\Desktop\\3-1\\\uC751\uC18C\uC2E4\\team_project\\AimTrainingProgram\\AimTrainingProgram\\MovingForm.cs",
-              "RelativeDocumentMoniker": "AimTrainingProgram\\MovingForm.cs",
-              "ToolTip": "C:\\Users\\choik\\Desktop\\3-1\\\uC751\uC18C\uC2E4\\team_project\\AimTrainingProgram\\AimTrainingProgram\\MovingForm.cs [\uB514\uC790\uC778]",
-              "RelativeToolTip": "AimTrainingProgram\\MovingForm.cs [\uB514\uC790\uC778]",
+              "Title": "SettingForm.cs [\uB514\uC790\uC778]",
+              "DocumentMoniker": "C:\\Users\\choik\\Desktop\\3-1\\\uC751\uC18C\uC2E4\\team_project\\AimTrainingProgram\\AimTrainingProgram\\SettingForm.cs",
+              "RelativeDocumentMoniker": "AimTrainingProgram\\SettingForm.cs",
+              "ToolTip": "C:\\Users\\choik\\Desktop\\3-1\\\uC751\uC18C\uC2E4\\team_project\\AimTrainingProgram\\AimTrainingProgram\\SettingForm.cs [\uB514\uC790\uC778]",
+              "RelativeToolTip": "AimTrainingProgram\\SettingForm.cs [\uB514\uC790\uC778]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-05T14:42:35.141Z",
+              "WhenOpened": "2025-05-05T14:05:54.783Z",
+              "EditorCaption": " [\uB514\uC790\uC778]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "TargetingForm.cs [\uB514\uC790\uC778]",
+              "DocumentMoniker": "C:\\Users\\choik\\Desktop\\3-1\\\uC751\uC18C\uC2E4\\team_project\\AimTrainingProgram\\AimTrainingProgram\\TargetingForm.cs",
+              "RelativeDocumentMoniker": "AimTrainingProgram\\TargetingForm.cs",
+              "ToolTip": "C:\\Users\\choik\\Desktop\\3-1\\\uC751\uC18C\uC2E4\\team_project\\AimTrainingProgram\\AimTrainingProgram\\TargetingForm.cs [\uB514\uC790\uC778]",
+              "RelativeToolTip": "AimTrainingProgram\\TargetingForm.cs [\uB514\uC790\uC778]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-05T14:42:21.834Z",
               "EditorCaption": " [\uB514\uC790\uC778]"
             },
             {
               "$type": "Document",
               "DocumentIndex": 4,
-              "Title": "MainForm.cs [\uB514\uC790\uC778]",
-              "DocumentMoniker": "C:\\Users\\choik\\Desktop\\3-1\\\uC751\uC18C\uC2E4\\team_project\\AimTrainingProgram\\AimTrainingProgram\\MainForm.cs",
-              "RelativeDocumentMoniker": "AimTrainingProgram\\MainForm.cs",
-              "ToolTip": "C:\\Users\\choik\\Desktop\\3-1\\\uC751\uC18C\uC2E4\\team_project\\AimTrainingProgram\\AimTrainingProgram\\MainForm.cs [\uB514\uC790\uC778]",
-              "RelativeToolTip": "AimTrainingProgram\\MainForm.cs [\uB514\uC790\uC778]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-05T08:08:47.375Z",
-              "EditorCaption": " [\uB514\uC790\uC778]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
               "Title": "PlayForm.cs [\uB514\uC790\uC778]",
               "DocumentMoniker": "C:\\Users\\choik\\Desktop\\3-1\\\uC751\uC18C\uC2E4\\team_project\\AimTrainingProgram\\AimTrainingProgram\\PlayForm.cs",
               "RelativeDocumentMoniker": "AimTrainingProgram\\PlayForm.cs",
@@ -162,113 +165,107 @@
             {
               "$type": "Document",
               "DocumentIndex": 5,
-              "Title": "MovingForm.cs",
+              "Title": "MovingForm.cs [\uB514\uC790\uC778]",
               "DocumentMoniker": "C:\\Users\\choik\\Desktop\\3-1\\\uC751\uC18C\uC2E4\\team_project\\AimTrainingProgram\\AimTrainingProgram\\MovingForm.cs",
               "RelativeDocumentMoniker": "AimTrainingProgram\\MovingForm.cs",
-              "ToolTip": "C:\\Users\\choik\\Desktop\\3-1\\\uC751\uC18C\uC2E4\\team_project\\AimTrainingProgram\\AimTrainingProgram\\MovingForm.cs",
-              "RelativeToolTip": "AimTrainingProgram\\MovingForm.cs",
-              "ViewState": "AgIAABAAAAAAAAAAAIAzwCEAAAAZAAAAAAAAAA==",
+              "ToolTip": "C:\\Users\\choik\\Desktop\\3-1\\\uC751\uC18C\uC2E4\\team_project\\AimTrainingProgram\\AimTrainingProgram\\MovingForm.cs [\uB514\uC790\uC778]",
+              "RelativeToolTip": "AimTrainingProgram\\MovingForm.cs [\uB514\uC790\uC778]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-05T14:46:19.373Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-05T14:42:35.141Z",
+              "EditorCaption": " [\uB514\uC790\uC778]"
             },
             {
               "$type": "Document",
               "DocumentIndex": 6,
-              "Title": "MainForm.cs",
+              "Title": "MainForm.cs [\uB514\uC790\uC778]",
               "DocumentMoniker": "C:\\Users\\choik\\Desktop\\3-1\\\uC751\uC18C\uC2E4\\team_project\\AimTrainingProgram\\AimTrainingProgram\\MainForm.cs",
               "RelativeDocumentMoniker": "AimTrainingProgram\\MainForm.cs",
-              "ToolTip": "C:\\Users\\choik\\Desktop\\3-1\\\uC751\uC18C\uC2E4\\team_project\\AimTrainingProgram\\AimTrainingProgram\\MainForm.cs",
-              "RelativeToolTip": "AimTrainingProgram\\MainForm.cs",
-              "ViewState": "AgIAAAwAAAAAAAAAAAAEwCAAAAAYAAAAAAAAAA==",
+              "ToolTip": "C:\\Users\\choik\\Desktop\\3-1\\\uC751\uC18C\uC2E4\\team_project\\AimTrainingProgram\\AimTrainingProgram\\MainForm.cs [\uB514\uC790\uC778]",
+              "RelativeToolTip": "AimTrainingProgram\\MainForm.cs [\uB514\uC790\uC778]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-05T08:14:44.932Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "TargetingForm.cs [\uB514\uC790\uC778]",
-              "DocumentMoniker": "C:\\Users\\choik\\Desktop\\3-1\\\uC751\uC18C\uC2E4\\team_project\\AimTrainingProgram\\AimTrainingProgram\\TargetingForm.cs",
-              "RelativeDocumentMoniker": "AimTrainingProgram\\TargetingForm.cs",
-              "ToolTip": "C:\\Users\\choik\\Desktop\\3-1\\\uC751\uC18C\uC2E4\\team_project\\AimTrainingProgram\\AimTrainingProgram\\TargetingForm.cs [\uB514\uC790\uC778]",
-              "RelativeToolTip": "AimTrainingProgram\\TargetingForm.cs [\uB514\uC790\uC778]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-05T14:42:21.834Z",
+              "WhenOpened": "2025-05-05T08:08:47.375Z",
               "EditorCaption": " [\uB514\uC790\uC778]"
             },
             {
               "$type": "Document",
               "DocumentIndex": 7,
-              "Title": "SettingForm.cs [\uB514\uC790\uC778]",
-              "DocumentMoniker": "C:\\Users\\choik\\Desktop\\3-1\\\uC751\uC18C\uC2E4\\team_project\\AimTrainingProgram\\AimTrainingProgram\\SettingForm.cs",
-              "RelativeDocumentMoniker": "AimTrainingProgram\\SettingForm.cs",
-              "ToolTip": "C:\\Users\\choik\\Desktop\\3-1\\\uC751\uC18C\uC2E4\\team_project\\AimTrainingProgram\\AimTrainingProgram\\SettingForm.cs [\uB514\uC790\uC778]",
-              "RelativeToolTip": "AimTrainingProgram\\SettingForm.cs [\uB514\uC790\uC778]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-05T14:05:54.783Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "SettingForm.cs",
-              "DocumentMoniker": "C:\\Users\\choik\\Desktop\\3-1\\\uC751\uC18C\uC2E4\\team_project\\AimTrainingProgram\\AimTrainingProgram\\SettingForm.cs",
-              "RelativeDocumentMoniker": "AimTrainingProgram\\SettingForm.cs",
-              "ToolTip": "C:\\Users\\choik\\Desktop\\3-1\\\uC751\uC18C\uC2E4\\team_project\\AimTrainingProgram\\AimTrainingProgram\\SettingForm.cs",
-              "RelativeToolTip": "AimTrainingProgram\\SettingForm.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAADIAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-05T14:19:36.965Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "ScoreForm.cs",
-              "DocumentMoniker": "C:\\Users\\choik\\Desktop\\3-1\\\uC751\uC18C\uC2E4\\team_project\\AimTrainingProgram\\AimTrainingProgram\\ScoreForm.cs",
-              "RelativeDocumentMoniker": "AimTrainingProgram\\ScoreForm.cs",
-              "ToolTip": "C:\\Users\\choik\\Desktop\\3-1\\\uC751\uC18C\uC2E4\\team_project\\AimTrainingProgram\\AimTrainingProgram\\ScoreForm.cs",
-              "RelativeToolTip": "AimTrainingProgram\\ScoreForm.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAA5AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-05T14:07:08.158Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "ScoreForm.cs [\uB514\uC790\uC778]",
-              "DocumentMoniker": "C:\\Users\\choik\\Desktop\\3-1\\\uC751\uC18C\uC2E4\\team_project\\AimTrainingProgram\\AimTrainingProgram\\ScoreForm.cs",
-              "RelativeDocumentMoniker": "AimTrainingProgram\\ScoreForm.cs",
-              "ToolTip": "C:\\Users\\choik\\Desktop\\3-1\\\uC751\uC18C\uC2E4\\team_project\\AimTrainingProgram\\AimTrainingProgram\\ScoreForm.cs [\uB514\uC790\uC778]",
-              "RelativeToolTip": "AimTrainingProgram\\ScoreForm.cs [\uB514\uC790\uC778]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-05T14:04:54.678Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 12,
-              "Title": "AnalyzeForm.cs",
-              "DocumentMoniker": "C:\\Users\\choik\\Desktop\\3-1\\\uC751\uC18C\uC2E4\\team_project\\AimTrainingProgram\\AimTrainingProgram\\AnalyzeForm.cs",
-              "RelativeDocumentMoniker": "AimTrainingProgram\\AnalyzeForm.cs",
-              "ToolTip": "C:\\Users\\choik\\Desktop\\3-1\\\uC751\uC18C\uC2E4\\team_project\\AimTrainingProgram\\AimTrainingProgram\\AnalyzeForm.cs",
-              "RelativeToolTip": "AimTrainingProgram\\AnalyzeForm.cs",
-              "ViewState": "AgIAAAgAAAAAAAAAAADgvxUAAAAkAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-05T14:10:19.272Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 13,
               "Title": "AnalyzeForm.cs [\uB514\uC790\uC778]",
               "DocumentMoniker": "C:\\Users\\choik\\Desktop\\3-1\\\uC751\uC18C\uC2E4\\team_project\\AimTrainingProgram\\AimTrainingProgram\\AnalyzeForm.cs",
               "RelativeDocumentMoniker": "AimTrainingProgram\\AnalyzeForm.cs",
               "ToolTip": "C:\\Users\\choik\\Desktop\\3-1\\\uC751\uC18C\uC2E4\\team_project\\AimTrainingProgram\\AimTrainingProgram\\AnalyzeForm.cs [\uB514\uC790\uC778]",
               "RelativeToolTip": "AimTrainingProgram\\AnalyzeForm.cs [\uB514\uC790\uC778]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-05T14:05:40.828Z"
+              "WhenOpened": "2025-05-05T14:05:40.828Z",
+              "EditorCaption": " [\uB514\uC790\uC778]"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 8,
+              "Title": "TargetingForm.cs",
+              "DocumentMoniker": "C:\\Users\\choik\\Desktop\\3-1\\\uC751\uC18C\uC2E4\\team_project\\AimTrainingProgram\\AimTrainingProgram\\TargetingForm.cs",
+              "RelativeDocumentMoniker": "AimTrainingProgram\\TargetingForm.cs",
+              "ToolTip": "C:\\Users\\choik\\Desktop\\3-1\\\uC751\uC18C\uC2E4\\team_project\\AimTrainingProgram\\AimTrainingProgram\\TargetingForm.cs",
+              "RelativeToolTip": "AimTrainingProgram\\TargetingForm.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAiAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-05T14:43:33.051Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "MovingForm.cs",
+              "DocumentMoniker": "C:\\Users\\choik\\Desktop\\3-1\\\uC751\uC18C\uC2E4\\team_project\\AimTrainingProgram\\AimTrainingProgram\\MovingForm.cs",
+              "RelativeDocumentMoniker": "AimTrainingProgram\\MovingForm.cs",
+              "ToolTip": "C:\\Users\\choik\\Desktop\\3-1\\\uC751\uC18C\uC2E4\\team_project\\AimTrainingProgram\\AimTrainingProgram\\MovingForm.cs",
+              "RelativeToolTip": "AimTrainingProgram\\MovingForm.cs",
+              "ViewState": "AgIAADMAAAAAAAAAAAAMwEgAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-05T14:46:19.373Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "SettingForm.cs",
+              "DocumentMoniker": "C:\\Users\\choik\\Desktop\\3-1\\\uC751\uC18C\uC2E4\\team_project\\AimTrainingProgram\\AimTrainingProgram\\SettingForm.cs",
+              "RelativeDocumentMoniker": "AimTrainingProgram\\SettingForm.cs",
+              "ToolTip": "C:\\Users\\choik\\Desktop\\3-1\\\uC751\uC18C\uC2E4\\team_project\\AimTrainingProgram\\AimTrainingProgram\\SettingForm.cs",
+              "RelativeToolTip": "AimTrainingProgram\\SettingForm.cs",
+              "ViewState": "AgIAADUAAAAAAAAAAAAMwEoAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-05T14:19:36.965Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "ScoreForm.cs",
+              "DocumentMoniker": "C:\\Users\\choik\\Desktop\\3-1\\\uC751\uC18C\uC2E4\\team_project\\AimTrainingProgram\\AimTrainingProgram\\ScoreForm.cs",
+              "RelativeDocumentMoniker": "AimTrainingProgram\\ScoreForm.cs",
+              "ToolTip": "C:\\Users\\choik\\Desktop\\3-1\\\uC751\uC18C\uC2E4\\team_project\\AimTrainingProgram\\AimTrainingProgram\\ScoreForm.cs",
+              "RelativeToolTip": "AimTrainingProgram\\ScoreForm.cs",
+              "ViewState": "AgIAAA4AAAAAAAAAAAD4vx8AAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-05T14:07:08.158Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "App.config",
+              "DocumentMoniker": "C:\\Users\\choik\\Desktop\\3-1\\\uC751\uC18C\uC2E4\\team_project\\AimTrainingProgram\\AimTrainingProgram\\App.config",
+              "RelativeDocumentMoniker": "AimTrainingProgram\\App.config",
+              "ToolTip": "C:\\Users\\choik\\Desktop\\3-1\\\uC751\uC18C\uC2E4\\team_project\\AimTrainingProgram\\AimTrainingProgram\\App.config",
+              "RelativeToolTip": "AimTrainingProgram\\App.config",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000601|",
+              "WhenOpened": "2025-05-10T15:12:02.329Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\choik\\Desktop\\3-1\\\uC751\uC18C\uC2E4\\team_project\\AimTrainingProgram\\AimTrainingProgram\\Program.cs",
               "RelativeDocumentMoniker": "AimTrainingProgram\\Program.cs",
@@ -276,11 +273,38 @@
               "RelativeToolTip": "AimTrainingProgram\\Program.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAgAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-05T08:08:57.245Z"
+              "WhenOpened": "2025-05-05T08:08:57.245Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "AnalyzeForm.cs",
+              "DocumentMoniker": "C:\\Users\\choik\\Desktop\\3-1\\\uC751\uC18C\uC2E4\\team_project\\AimTrainingProgram\\AimTrainingProgram\\AnalyzeForm.cs",
+              "RelativeDocumentMoniker": "AimTrainingProgram\\AnalyzeForm.cs",
+              "ToolTip": "C:\\Users\\choik\\Desktop\\3-1\\\uC751\uC18C\uC2E4\\team_project\\AimTrainingProgram\\AimTrainingProgram\\AnalyzeForm.cs",
+              "RelativeToolTip": "AimTrainingProgram\\AnalyzeForm.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAADUAAAAfAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-05T14:10:19.272Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 15,
+              "Title": "MainForm.cs",
+              "DocumentMoniker": "C:\\Users\\choik\\Desktop\\3-1\\\uC751\uC18C\uC2E4\\team_project\\AimTrainingProgram\\AimTrainingProgram\\MainForm.cs",
+              "RelativeDocumentMoniker": "AimTrainingProgram\\MainForm.cs",
+              "ToolTip": "C:\\Users\\choik\\Desktop\\3-1\\\uC751\uC18C\uC2E4\\team_project\\AimTrainingProgram\\AimTrainingProgram\\MainForm.cs",
+              "RelativeToolTip": "AimTrainingProgram\\MainForm.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-05T08:14:44.932Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
               "Title": "SettingForm.Designer.cs",
               "DocumentMoniker": "C:\\Users\\choik\\Desktop\\3-1\\\uC751\uC18C\uC2E4\\team_project\\AimTrainingProgram\\AimTrainingProgram\\SettingForm.Designer.cs",
               "RelativeDocumentMoniker": "AimTrainingProgram\\SettingForm.Designer.cs",
@@ -288,11 +312,12 @@
               "RelativeToolTip": "AimTrainingProgram\\SettingForm.Designer.cs",
               "ViewState": "AgIAABoAAAAAAAAAAAAlwCsAAAAPAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-05T14:20:40.102Z"
+              "WhenOpened": "2025-05-05T14:20:40.102Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
+              "DocumentIndex": 17,
               "Title": ".Designer.cs",
               "DocumentMoniker": "C:\\Users\\choik\\Desktop\\3-1\\\uC751\uC18C\uC2E4\\team_project\\AimTrainingProgram\\AimTrainingProgram\\.Designer.cs",
               "RelativeDocumentMoniker": "AimTrainingProgram\\.Designer.cs",
@@ -305,7 +330,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 17,
+              "DocumentIndex": 18,
               "Title": "ScoreForm.Designer.cs",
               "DocumentMoniker": "C:\\Users\\choik\\Desktop\\3-1\\\uC751\uC18C\uC2E4\\team_project\\AimTrainingProgram\\AimTrainingProgram\\ScoreForm.Designer.cs",
               "RelativeDocumentMoniker": "AimTrainingProgram\\ScoreForm.Designer.cs",
@@ -313,7 +338,8 @@
               "RelativeToolTip": "AimTrainingProgram\\ScoreForm.Designer.cs",
               "ViewState": "AgIAACMAAAAAAAAAAAApwDUAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-05T14:11:13.221Z"
+              "WhenOpened": "2025-05-05T14:11:13.221Z",
+              "EditorCaption": ""
             }
           ]
         },

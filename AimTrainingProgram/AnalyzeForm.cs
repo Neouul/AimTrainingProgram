@@ -47,5 +47,28 @@ namespace AimTrainingProgram
             home.Show();
             this.Close();
         }
+
+        private void btnSetting_Click(object sender, EventArgs e)
+        {
+            SettingForm settingForm = new SettingForm(this);
+            settingForm.Show();
+            this.Hide();
+        }
+
+        private void btnPlay_Click(object sender, EventArgs e)
+        {
+            PlayForm playForm = new PlayForm(this);
+            playForm.Show();
+            this.Hide();
+
+        }
+
+        private void btnScore_Click(object sender, EventArgs e)
+        {
+            ScoreForm scoreForm = new ScoreForm(this);
+            scoreForm.Show();
+            this.Hide();
+
+        }
     }
 }

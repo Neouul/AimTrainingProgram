@@ -50,5 +50,29 @@ namespace AimTrainingProgram
         {
 
         }
+
+        private void btnPlay_Click(object sender, EventArgs e)
+        {
+            PlayForm playForm = new PlayForm(this);
+            playForm.Show();
+            this.Hide();
+
+        }
+
+        private void btnScore_Click(object sender, EventArgs e)
+        {
+            ScoreForm scoreForm = new ScoreForm(this);
+            scoreForm.Show();
+            this.Hide();
+
+        }
+
+        private void btnAnalyze_Click(object sender, EventArgs e)
+        {
+            AnalyzeForm analyzeForm = new AnalyzeForm(this);
+            analyzeForm.Show();
+            this.Hide();
+
+        }
     }
 }
