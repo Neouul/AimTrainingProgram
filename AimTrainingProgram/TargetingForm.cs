@@ -14,7 +14,7 @@ namespace AimTrainingProgram
     {
         private Form previousForm;
 
-        private int lolSens = SettingForm.GameSensitivity;
+        private float lolSens = SettingForm.GameSensitivity;
         private int pcSens = SettingForm.ControlPanelSpeed;
         private float sensitivityScale;
 
@@ -45,23 +45,28 @@ namespace AimTrainingProgram
             this.WindowState = FormWindowState.Maximized;
             this.DoubleBuffered = true;
 
-            if (lolSens <= 10) sensitivityScale = (lolSens / 5) / 32f;
-            else if (lolSens < 55) sensitivityScale = (lolSens / 5 - 2) / 8f;
-            else sensitivityScale = (lolSens / 5 - 6) / 4f;
-
-            switch (pcSens)
+            if (lolSens < 5) sensitivityScale = lolSens;
+            else
             {
-                case 1: sensitivityScale /= 0.03125f; break;
-                case 2: sensitivityScale /= 0.125f; break;
-                case 3: sensitivityScale /= 0.25f; break;
-                case 4: sensitivityScale /= 0.5f; break;
-                case 5: sensitivityScale /= 0.75f; break;
-                case 7: sensitivityScale /= 1.5f; break;
-                case 8: sensitivityScale /= 2.0f; break;
-                case 9: sensitivityScale /= 2.5f; break;
-                case 10: sensitivityScale /= 3.0f; break;
-                case 11: sensitivityScale /= 3.5f; break;
+                if (lolSens <= 10) sensitivityScale = (lolSens / 5) / 32f;
+                else if (lolSens < 55) sensitivityScale = (lolSens / 5 - 2) / 8f;
+                else sensitivityScale = (lolSens / 5 - 6) / 4f;
+
+                switch (pcSens)
+                {
+                    case 1: sensitivityScale /= 0.03125f; break;
+                    case 2: sensitivityScale /= 0.125f; break;
+                    case 3: sensitivityScale /= 0.25f; break;
+                    case 4: sensitivityScale /= 0.5f; break;
+                    case 5: sensitivityScale /= 0.75f; break;
+                    case 7: sensitivityScale /= 1.5f; break;
+                    case 8: sensitivityScale /= 2.0f; break;
+                    case 9: sensitivityScale /= 2.5f; break;
+                    case 10: sensitivityScale /= 3.0f; break;
+                    case 11: sensitivityScale /= 3.5f; break;
+                }
             }
+            
 
             this.previousForm = previousForm;
         }
