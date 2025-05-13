@@ -52,6 +52,8 @@
     <Compile Include="AnalyzeForm.Designer.cs">
       <DependentUpon>AnalyzeForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Data\DataManager.cs" />
+    <Compile Include="Data\ScoreData.cs" />
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -73,6 +75,11 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="ScoreForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -105,14 +112,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
-    </Compile>
     <EmbeddedResource Include="ScoreForm.resx">
       <DependentUpon>ScoreForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -143,6 +145,18 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\pointer1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\analyzeBtn.png" />
+    <None Include="Resources\settingBtn1.png" />
+    <None Include="Resources\analyzeBtn1.png" />
+    <None Include="Resources\bot1.png" />
+    <Content Include="Resources\playBtn.png" />
+    <None Include="Resources\playBtn1.png" />
+    <None Include="Resources\player1.png" />
+    <Content Include="Resources\scoreBtn.png" />
+    <None Include="Resources\scoreBtn1.png" />
+    <Content Include="Resources\settingBtn.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

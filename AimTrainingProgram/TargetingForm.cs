@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using AimTrainingProgram.Data;
 
 namespace AimTrainingProgram
 {
@@ -276,6 +277,7 @@ namespace AimTrainingProgram
 
         private void btnRestart_Click(object sender, EventArgs e)
         {
+            SaveScoreData();
             targetCount = 0;
             score = 0;
             isTargetHit = false;
@@ -340,6 +342,27 @@ namespace AimTrainingProgram
         private void AimTarget_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void SaveScoreData()
+        {
+            ScoreData data = new ScoreData
+            {
+                Date = DateTime.Now,
+                Score = score,
+                GameSensitivity = SettingForm.GameSensitivity,
+                ControlPanelSpeed = SettingForm.ControlPanelSpeed
+            };
+
+            DataManager.SaveScore(data);
+        }
+
+        private void TargetingForm_VisibleChanged(object sender, EventArgs e)
+        {
+            if (this.Visible == false)
+            {
+                SaveScoreData();
+            }
         }
     }
 }
