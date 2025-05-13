@@ -192,6 +192,8 @@ namespace AimTrainingProgram
             isTargetHit = false;
             targetCount++;
 
+            resultMessage = "";
+
             visibilityTimer.Start();
             Invalidate();
         }

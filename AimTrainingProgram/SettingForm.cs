@@ -25,10 +25,10 @@ namespace AimTrainingProgram
             Hard
         }
 
-        private Dictionary<string, string> gameSensMap = new Dictionary<string, string>();
+        public Dictionary<string, string> gameSensMap = new Dictionary<string, string>();
 
-        public static string LastPcSens = "";
-        public static string LastGameSens = "";
+        //public static string LastPcSens = "";
+        //public static string LastGameSens = "";
         public static string LastSelectedCombo = "";
 
         public static Difficulty SelectedDifficulty = Difficulty.Easy;
@@ -37,8 +37,6 @@ namespace AimTrainingProgram
         {
             InitializeComponent();
             this.WindowState = FormWindowState.Maximized;
-
-            PcSens.Text = Convert.ToString(SettingForm.ControlPanelSpeed);
 
             LoadGameSensFromReg();
 
@@ -73,11 +71,6 @@ namespace AimTrainingProgram
         {
 
             LoadGameSensFromReg();
-
-            PcSens.Text = LastPcSens;
-            GameSens.Text = LastGameSens;
-            comboBox1.SelectedItem = LastSelectedCombo;
-
 
             switch (SelectedDifficulty)
             {
@@ -130,7 +123,7 @@ namespace AimTrainingProgram
 
             if (float.TryParse(GameSens.Text, out float value2))
                 SettingForm.GameSensitivity = value2;
-            LastPcSens = PcSens.Text;
+            
             if (!string.IsNullOrWhiteSpace(LastSelectedCombo))
                 gameSensMap[LastSelectedCombo] = GameSens.Text;
 
@@ -230,8 +223,8 @@ namespace AimTrainingProgram
                     object value = rk.GetValue("PcSens");
                     if (value != null && int.TryParse(value.ToString(), out int result))
                         SettingForm.ControlPanelSpeed = result;
-                    LastPcSens = Convert.ToString(SettingForm.ControlPanelSpeed);
-                    PcSens.Text = LastPcSens;
+
+                    PcSens.Text = Convert.ToString(SettingForm.ControlPanelSpeed);
 
                     object lastCombo = rk.GetValue("LastSelectedCombo");
                     if (lastCombo != null)
@@ -242,7 +235,6 @@ namespace AimTrainingProgram
                         if (gameSensMap.TryGetValue(LastSelectedCombo, out string sens))
                         {
                             GameSens.Text = sens;
-                            LastGameSens = sens;
 
                             if (float.TryParse(sens, out float parsed))
                             {
@@ -254,9 +246,9 @@ namespace AimTrainingProgram
                             }
                         }
 
-                        rk.Close();
                     }
                 }
+                rk.Close();
             }
             catch (Exception ex)
             {

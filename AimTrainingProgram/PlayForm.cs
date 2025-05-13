@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Microsoft.Win32;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace AimTrainingProgram
 {
@@ -43,10 +45,44 @@ namespace AimTrainingProgram
             this.Close();
         }
 
+        
+
         private void PlayForm_Load(object sender, EventArgs e)
         {
 
+            try
+            {
+                RegistryKey rk = Registry.CurrentUser.OpenSubKey(@"SOFTWARE\AimTrainingProgram\GameSensitivities");
+                if (rk != null)
+                {
+                    // 🎯 PC 제어판 감도 로드
+                    object value = rk.GetValue("PcSens");
+                    if (value != null && int.TryParse(value.ToString(), out int result))
+                        SettingForm.ControlPanelSpeed = result;
+
+                    // 🎯 마지막 선택된 게임 이름 로드
+                    object lastCombo = rk.GetValue("LastSelectedCombo");
+                    if (lastCombo != null)
+                    {
+                        string gameName = lastCombo.ToString();
+
+                        // 🎯 해당 게임에 대한 감도값 로드
+                        object gameSensi = rk.GetValue($"GameSensi_{gameName}");
+                        if (gameSensi != null && float.TryParse(gameSensi.ToString(), out float parsed))
+                        {
+                            SettingForm.GameSensitivity = parsed;
+                        }
+                    }
+
+                    rk.Close(); // 레지스트리 닫기
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("레지스트리 불러오기 실패: " + ex.Message);
+            }
         }
+        
 
         private void btnTargeting_Click(object sender, EventArgs e)
         {
