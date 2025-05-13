@@ -35,17 +35,15 @@
             this.btnScore = new System.Windows.Forms.Button();
             this.btnPlay = new System.Windows.Forms.Button();
             this.btnRestart = new System.Windows.Forms.Button();
-            this.moveScore = new System.Windows.Forms.Label();
+            this.lblScore = new System.Windows.Forms.Label();
             this.MousePointer = new System.Windows.Forms.PictureBox();
             this.target = new System.Windows.Forms.PictureBox();
             this.player = new System.Windows.Forms.PictureBox();
-            this.target1 = new System.Windows.Forms.PictureBox();
-            this.target2 = new System.Windows.Forms.PictureBox();
+            this.bot = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.MousePointer)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.target)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.player)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.target1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.target2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bot)).BeginInit();
             this.SuspendLayout();
             // 
             // btnHome
@@ -118,16 +116,16 @@
             this.btnRestart.UseVisualStyleBackColor = true;
             this.btnRestart.Click += new System.EventHandler(this.btnRestart_Click_1);
             // 
-            // moveScore
+            // lblScore
             // 
-            this.moveScore.AutoSize = true;
-            this.moveScore.Font = new System.Drawing.Font("굴림", 20F);
-            this.moveScore.Location = new System.Drawing.Point(14, 120);
-            this.moveScore.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
-            this.moveScore.Name = "moveScore";
-            this.moveScore.Size = new System.Drawing.Size(305, 54);
-            this.moveScore.TabIndex = 22;
-            this.moveScore.Text = "MoveScore";
+            this.lblScore.AutoSize = true;
+            this.lblScore.Font = new System.Drawing.Font("굴림", 20F);
+            this.lblScore.Location = new System.Drawing.Point(14, 120);
+            this.lblScore.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.lblScore.Name = "lblScore";
+            this.lblScore.Size = new System.Drawing.Size(305, 54);
+            this.lblScore.TabIndex = 22;
+            this.lblScore.Text = "MoveScore";
             // 
             // MousePointer
             // 
@@ -156,45 +154,32 @@
             // player
             // 
             this.player.Image = global::AimTrainingProgram.Properties.Resources.player;
-            this.player.Location = new System.Drawing.Point(340, 723);
+            this.player.Location = new System.Drawing.Point(732, 352);
             this.player.Name = "player";
-            this.player.Size = new System.Drawing.Size(68, 76);
-            this.player.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.player.Size = new System.Drawing.Size(119, 124);
+            this.player.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.player.TabIndex = 24;
             this.player.TabStop = false;
             // 
-            // target1
+            // bot
             // 
-            this.target1.Image = global::AimTrainingProgram.Properties.Resources.target;
-            this.target1.Location = new System.Drawing.Point(184, 808);
-            this.target1.Margin = new System.Windows.Forms.Padding(8);
-            this.target1.Name = "target1";
-            this.target1.Size = new System.Drawing.Size(81, 80);
-            this.target1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.target1.TabIndex = 25;
-            this.target1.TabStop = false;
-            // 
-            // target2
-            // 
-            this.target2.Image = global::AimTrainingProgram.Properties.Resources.target;
-            this.target2.Location = new System.Drawing.Point(327, 810);
-            this.target2.Margin = new System.Windows.Forms.Padding(8);
-            this.target2.Name = "target2";
-            this.target2.Size = new System.Drawing.Size(81, 80);
-            this.target2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.target2.TabIndex = 26;
-            this.target2.TabStop = false;
+            this.bot.Image = global::AimTrainingProgram.Properties.Resources.bot;
+            this.bot.Location = new System.Drawing.Point(205, 396);
+            this.bot.Name = "bot";
+            this.bot.Size = new System.Drawing.Size(114, 124);
+            this.bot.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.bot.TabIndex = 27;
+            this.bot.TabStop = false;
             // 
             // MovingForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(13F, 24F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1634, 921);
-            this.Controls.Add(this.target2);
-            this.Controls.Add(this.target1);
+            this.Controls.Add(this.bot);
             this.Controls.Add(this.player);
             this.Controls.Add(this.btnRestart);
-            this.Controls.Add(this.moveScore);
+            this.Controls.Add(this.lblScore);
             this.Controls.Add(this.MousePointer);
             this.Controls.Add(this.target);
             this.Controls.Add(this.btnSetting);
@@ -209,8 +194,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.MousePointer)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.target)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.player)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.target1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.target2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bot)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -225,11 +209,10 @@
         private System.Windows.Forms.Button btnScore;
         private System.Windows.Forms.Button btnPlay;
         private System.Windows.Forms.Button btnRestart;
-        private System.Windows.Forms.Label moveScore;
+        private System.Windows.Forms.Label lblScore;
         private System.Windows.Forms.PictureBox MousePointer;
         private System.Windows.Forms.PictureBox target;
         private System.Windows.Forms.PictureBox player;
-        private System.Windows.Forms.PictureBox target1;
-        private System.Windows.Forms.PictureBox target2;
+        private System.Windows.Forms.PictureBox bot;
     }
 }
