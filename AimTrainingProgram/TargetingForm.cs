@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using AimTrainingProgram.Data;
+using AimTrainingProgram.Data.AimTrainingProgram.Data;
 
 namespace AimTrainingProgram
 {
@@ -24,7 +25,7 @@ namespace AimTrainingProgram
 
         private Point lastMousePos;
         private Point pointerPosition = Point.Empty;
-        private Bitmap pointerBitmap = Properties.Resources.pointer;//이미지 파일
+        private Bitmap pointerBitmap = Properties.Resources.pointer;
         private Bitmap targetBitmap = Properties.Resources.target;
         private Point targetPosition = Point.Empty;
 
@@ -36,10 +37,15 @@ namespace AimTrainingProgram
         private bool isTargetHit = false;
         private bool isTargetVisible = false;
         private bool isCursorHidden = true;
-        private int targetSize = 50; // 기본값
+        private int targetSize = 50;
 
         private string resultMessage = "";
         private Timer resultMessageTimer;
+
+        private List<TargetResult> hitData = new List<TargetResult>();
+        private Point currentTargetCenter;
+        private List<TargetHitRecord> hitRecords = new List<TargetHitRecord>();
+
         public TargetingForm(Form previousForm)
         {
             InitializeComponent();
@@ -67,7 +73,6 @@ namespace AimTrainingProgram
                     case 11: sensitivityScale /= 3.5f; break;
                 }
             }
-            
 
             this.previousForm = previousForm;
         }
@@ -98,32 +103,28 @@ namespace AimTrainingProgram
                     targetTimer.Interval = 2000;
                     visibilityTimer.Interval = 1000;
                     targetSize = 70;
-
                     break;
                 case SettingForm.Difficulty.Normal:
                     targetTimer.Interval = 1000;
                     visibilityTimer.Interval = 700;
                     targetSize = 50;
-
                     break;
                 case SettingForm.Difficulty.Hard:
                     targetTimer.Interval = 700;
                     visibilityTimer.Interval = 800;
                     targetSize = 20;
-
                     break;
             }
 
             targetTimer.Start();
 
             resultMessageTimer = new Timer();
-            resultMessageTimer.Interval = 1000; // 1초
+            resultMessageTimer.Interval = 1000;
             resultMessageTimer.Tick += (s, ev) =>
             {
                 resultMessage = "";
                 resultMessageTimer.Stop();
-                Invalidate(); // 메시지 지우기 위해 다시 그리기
-
+                Invalidate();
             };
         }
 
@@ -134,7 +135,6 @@ namespace AimTrainingProgram
             if (isTargetVisible)
                 e.Graphics.DrawImage(targetBitmap, targetPosition.X, targetPosition.Y, targetSize, targetSize);
 
-            // ✅ 마우스 포인터 이미지 비율 유지
             int originalW = pointerBitmap.Width;
             int originalH = pointerBitmap.Height;
 
@@ -148,7 +148,6 @@ namespace AimTrainingProgram
             {
                 using (Font font = new Font("Segoe UI", 10, FontStyle.Bold))
                 {
-                    //메시지에 따라 색상 분기
                     Color color = resultMessage == "Perfect!" ? Color.Green : Color.Red;
 
                     using (Brush brush = new SolidBrush(color))
@@ -165,8 +164,6 @@ namespace AimTrainingProgram
                 }
             }
         }
-
-
 
         private void ShowTarget(object sender, EventArgs e)
         {
@@ -188,6 +185,8 @@ namespace AimTrainingProgram
             int y = random.Next(marginY, marginY + rangeY);
 
             targetPosition = new Point(x, y);
+            currentTargetCenter = new Point(x + targetSize / 2, y + targetSize / 2);
+
             isTargetVisible = true;
             isTargetHit = false;
             targetCount++;
@@ -201,6 +200,21 @@ namespace AimTrainingProgram
         private void HideTarget(object sender, EventArgs e)
         {
             isTargetVisible = false;
+            if (!isTargetHit)
+            {
+                // 타겟이 클릭되지 않았으므로 Miss 처리
+                hitData.Add(new TargetResult
+                {
+                    Position = currentTargetCenter,
+                    IsHit = false
+                });
+
+                hitRecords.Add(new TargetHitRecord
+                {
+                    Position = targetPosition,
+                    IsHit = false
+                });
+            }
             visibilityTimer.Stop();
             Invalidate();
         }
@@ -259,8 +273,17 @@ namespace AimTrainingProgram
             if (!isTargetVisible || isTargetHit) return;
 
             Rectangle targetRect = new Rectangle(targetPosition, new Size(targetSize, targetSize));
+            bool hit = targetRect.Contains(pointerPosition);
 
-            if (targetRect.Contains(pointerPosition))
+            hitData.Add(new TargetResult
+            {
+                Position = currentTargetCenter,
+                IsHit = hit
+            });
+
+            hitRecords.Add(new TargetHitRecord { Position = targetPosition, IsHit = hit });
+
+            if (hit)
             {
                 score++;
                 TargetScore.Text = $"점수: {score}/10";
@@ -274,7 +297,7 @@ namespace AimTrainingProgram
 
             resultMessageTimer.Stop();
             resultMessageTimer.Start();
-            Invalidate(); // 메시지 표시 위해 다시 그리기
+            Invalidate();
         }
 
         private void btnRestart_Click(object sender, EventArgs e)
@@ -317,6 +340,7 @@ namespace AimTrainingProgram
 
         private void btnScore_Click(object sender, EventArgs e)
         {
+            SaveScoreData();
             ScoreForm scoreForm = new ScoreForm(this);
             scoreForm.Show();
             this.Hide();
@@ -324,7 +348,8 @@ namespace AimTrainingProgram
 
         private void btnAnalyze_Click(object sender, EventArgs e)
         {
-            AnalyzeForm analyzeForm = new AnalyzeForm(this);
+            SaveScoreData();
+            AnalyzeForm analyzeForm = new AnalyzeForm(this, hitRecords);
             analyzeForm.Show();
             this.Hide();
         }
@@ -336,15 +361,9 @@ namespace AimTrainingProgram
             this.Hide();
         }
 
-        private void MousePointer_Click(object sender, EventArgs e)
-        {
+        private void MousePointer_Click(object sender, EventArgs e) { }
 
-        }
-
-        private void AimTarget_Click(object sender, EventArgs e)
-        {
-
-        }
+        private void AimTarget_Click(object sender, EventArgs e) { }
 
         private void SaveScoreData()
         {
@@ -353,10 +372,13 @@ namespace AimTrainingProgram
                 Date = DateTime.Now,
                 Score = score,
                 GameSensitivity = SettingForm.GameSensitivity,
-                ControlPanelSpeed = SettingForm.ControlPanelSpeed
+                ControlPanelSpeed = SettingForm.ControlPanelSpeed,
+                Mode = "Targeting",
+                Difficulty = SettingForm.SelectedDifficulty.ToString()
             };
 
             DataManager.SaveScore(data);
+            DataManager.SaveHitRecords(hitRecords);
         }
 
         private void TargetingForm_VisibleChanged(object sender, EventArgs e)
@@ -366,5 +388,6 @@ namespace AimTrainingProgram
                 SaveScoreData();
             }
         }
+
     }
 }
