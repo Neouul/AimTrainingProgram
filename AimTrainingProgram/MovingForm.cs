@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AimTrainingProgram.Data;
+using System;
 using System.Drawing;
 using System.Windows.Forms;
 
@@ -202,6 +203,7 @@ namespace AimTrainingProgram
             isProjectileActive = false;
             gameOver = true;
             btnRestart.Enabled = true;
+            SaveScoreData();
             MessageBox.Show($"게임 종료! 성공: {successes}/{MAX_ATTEMPTS}");
         }
 
@@ -415,5 +417,20 @@ namespace AimTrainingProgram
         {
             // 폼 로드 시 초기화 코드(필요시)
         }
+
+        private void SaveScoreData()
+        {
+            ScoreData data = new ScoreData
+            {
+                Date = DateTime.Now,
+                Score = successes, // 명중 수 (정확한 의미의 "점수")
+                GameSensitivity = SettingForm.GameSensitivity,
+                ControlPanelSpeed = SettingForm.ControlPanelSpeed,
+                Mode = "Moving"
+            };
+
+            DataManager.SaveScore(data);
+        }
+
     }
 }
