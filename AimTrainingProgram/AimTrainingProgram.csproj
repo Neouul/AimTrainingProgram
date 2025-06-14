@@ -35,6 +35,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -54,6 +55,7 @@
     </Compile>
     <Compile Include="Data\DataManager.cs" />
     <Compile Include="Data\ScoreData.cs" />
+    <Compile Include="Data\TargetResult.cs" />
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
