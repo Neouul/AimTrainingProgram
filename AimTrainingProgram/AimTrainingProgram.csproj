@@ -151,6 +151,10 @@
     <None Include="Resources\settingBtn1.png" />
     <None Include="Resources\analyzeBtn1.png" />
     <None Include="Resources\bot1.png" />
+    <None Include="Resources\blitz.png" />
+    <None Include="Resources\map.png" />
+    <None Include="Resources\morgana.png" />
+    <None Include="Resources\malphite.png" />
     <Content Include="Resources\playBtn.png" />
     <None Include="Resources\playBtn1.png" />
     <None Include="Resources\player1.png" />
