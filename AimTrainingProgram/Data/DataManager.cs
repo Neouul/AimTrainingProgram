@@ -96,14 +96,12 @@ namespace AimTrainingProgram
             return records;
         }
 
-        public static List<TargetHitRecord> LoadRecentHitRecords(int count = 5)
+        public static List<TargetHitRecord> LoadRecentHitRecords()
         {
             if (!File.Exists(hitRecordPath)) return new List<TargetHitRecord>();
 
-            var lines = File.ReadAllLines(hitRecordPath).Reverse().ToList(); // 최근 기록부터 읽음
+            var lines = File.ReadAllLines(hitRecordPath);
             var grouped = new List<TargetHitRecord>();
-            int gameCount = 0;
-            int recordCount = 0;
 
             foreach (var line in lines)
             {
@@ -114,15 +112,13 @@ namespace AimTrainingProgram
                     int.TryParse(parts[1], out int y) &&
                     bool.TryParse(parts[2], out bool isHit))
                 {
-                    grouped.Insert(0, new TargetHitRecord { Position = new Point(x, y), IsHit = isHit });
-                    recordCount++;
-                    if (recordCount % 10 == 0) gameCount++; // 게임당 10개 타겟 기준
-                    if (gameCount >= count) break;
+                    grouped.Add(new TargetHitRecord { Position = new Point(x, y), IsHit = isHit });
                 }
             }
 
             return grouped;
         }
+
         public static void ClearHitRecords()
         {
             if (File.Exists(hitRecordPath))
