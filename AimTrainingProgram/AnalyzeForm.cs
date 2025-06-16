@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Forms.DataVisualization.Charting;
 using AimTrainingProgram.Data;
 using AimTrainingProgram.Data.AimTrainingProgram.Data;
 
@@ -89,15 +90,51 @@ namespace AimTrainingProgram
                 return;
             }
 
+            float GetDifficultyWeight(string difficulty)
+            {
+                switch (difficulty)
+                {
+                    case "Easy":
+                        return 1f;
+                    case "Normal":
+                        return 2f;
+                    case "Hard":
+                        return 3f;
+                    default:
+                        return 1f;
+                }
+            }
+
+
             // 감도별 그룹
             var grouped = scores
                 .GroupBy(s => s.GameSensitivity)
-                .Select(g => new
+                .Select(g =>
                 {
-                    Sensitivity = g.Key,
-                    Avg = g.Average(x => x.Score),
-                    StdDev = Math.Sqrt(g.Average(x => Math.Pow(x.Score - g.Average(y => y.Score), 2))),
-                    Count = g.Count()
+                    double weightedScoreSum = 0;
+                    double weightSum = 0;
+                    foreach (var s in g)
+                    {
+                        float weight = GetDifficultyWeight(s.Difficulty);
+                        weightedScoreSum += s.Score * weight;
+                        weightSum += weight;
+                    }
+
+                    double avgWeightedScore = weightSum > 0 ? weightedScoreSum / weightSum : 0;
+
+                    double stdDev = Math.Sqrt(g.Average(x =>
+                    {
+                        float weight = GetDifficultyWeight(x.Difficulty);
+                        return Math.Pow(x.Score - avgWeightedScore, 2) * weight;
+                    }));
+
+                    return new
+                    {
+                        Sensitivity = g.Key,
+                        Avg = avgWeightedScore,
+                        StdDev = stdDev,
+                        Count = g.Count()
+                    };
                 })
                 .ToList();
 
@@ -116,16 +153,62 @@ namespace AimTrainingProgram
             float rangeMax = highScoring.LastOrDefault()?.Sensitivity ?? best.Sensitivity;
 
             // 결과 텍스트 구성
-            labelRecommendation.Text = $"당신의 추천 감도: {best.Sensitivity:F2}\n\n" +
-                                       $"- 평균 점수: {best.Avg:F1} / 10\n" +
-                                       $"- 시도 횟수: {best.Count}회\n" +
-                                       $"- 표준편차: ±{best.StdDev:F1}\n\n" +
-                                       $"높은 점수를 기록한 감도 구간:\n" +
+            labelRecommendation.Text = $"당신의 추천 감도 : {best.Sensitivity:F2}\n\n" +
+                                       $"- 평균 점수 : {best.Avg:F1} / 10\n" +
+                                       $"- 시도 횟수 : {best.Count}회\n" +
+                                       $"- 표준편차 : ±{best.StdDev:F1}\n\n" +
+                                       $"높은 점수를 기록한 감도 구간 :\n" +
                                        $"{rangeMin:F1} ~ {rangeMax:F1}";
+
+            // ▼ 막대그래프 업데이트 (추천 감도 기준으로)
+            var difficultyLevels = new[] { "Easy", "Normal", "Hard" };
+
+            // 추천 감도에 해당하는 점수만 필터링
+            var bestScores = scores
+                .Where(s => Math.Abs(s.GameSensitivity - best.Sensitivity) < 0.0001f)  // 실수 비교
+                .ToList();
+
+            // 난이도별 평균 점수 계산
+            Dictionary<string, double> avgByDifficulty = new Dictionary<string, double>();
+            foreach (var level in difficultyLevels)
+            {
+                var levelScores = bestScores
+                    .Where(s => s.Difficulty.Trim().Equals(level, StringComparison.OrdinalIgnoreCase))
+                    .ToList();
+
+                if (levelScores.Count > 0)
+                    avgByDifficulty[level] = levelScores.Average(s => s.Score);
+                else
+                    avgByDifficulty[level] = 0;
+            }
+
+            // 차트 구성
+            chartDifficultyStats.Series.Clear();
+            chartDifficultyStats.ChartAreas.Clear();
+            chartDifficultyStats.Titles.Clear();
+
+            chartDifficultyStats.ChartAreas.Add(new ChartArea("Main"));
+            var series = new Series("평균 점수")
+            {
+                ChartType = SeriesChartType.Column,
+                IsValueShownAsLabel = true
+            };
+
+            foreach (var level in difficultyLevels)
+            {
+                series.Points.AddXY(level, avgByDifficulty[level]);
+            }
+
+            chartDifficultyStats.Series.Add(series);
+            chartDifficultyStats.Titles.Add($"추천 감도 {best.Sensitivity:F2}의 난이도별 평균 점수");
+
         }
+
+
+
         private void AnalyzeHitMap()
         {
-            var recentRecords = DataManager.LoadRecentHitRecords(5);
+            var recentRecords = DataManager.LoadRecentHitRecords();  // 전체 기록 불러오기
 
             int mapWidth = 800;
             int mapHeight = 600;
@@ -157,6 +240,7 @@ namespace AimTrainingProgram
             pictureBox1.Invalidate();
             pictureBox1.Refresh();
         }
+
 
 
 

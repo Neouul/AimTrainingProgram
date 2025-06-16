@@ -14,7 +14,7 @@ namespace AimTrainingProgram.Data
         public float GameSensitivity { get; set; }
         public int ControlPanelSpeed { get; set; }
         public string Mode { get; set; }  // 예: "Targeting" 또는 "Moving"
-        public string Difficulty { get; set; }  // 예: "Targeting" 또는 "Moving"
+        public string Difficulty { get; set; }
 
     }
 

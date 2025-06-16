@@ -29,6 +29,9 @@ namespace AimTrainingProgram
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.btnHome = new System.Windows.Forms.Button();
             this.btnBack = new System.Windows.Forms.Button();
             this.btnSetting = new System.Windows.Forms.Button();
@@ -39,7 +42,11 @@ namespace AimTrainingProgram
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnClearRecords = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.chartDifficultyStats = new System.Windows.Forms.DataVisualization.Charting.Chart();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.chartDifficultyStats)).BeginInit();
             this.SuspendLayout();
             // 
             // btnHome
@@ -112,7 +119,7 @@ namespace AimTrainingProgram
             // 
             this.labelRecommendation.AutoSize = true;
             this.labelRecommendation.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.labelRecommendation.Location = new System.Drawing.Point(57, 161);
+            this.labelRecommendation.Location = new System.Drawing.Point(19, 61);
             this.labelRecommendation.Name = "labelRecommendation";
             this.labelRecommendation.Size = new System.Drawing.Size(78, 32);
             this.labelRecommendation.TabIndex = 15;
@@ -120,15 +127,15 @@ namespace AimTrainingProgram
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(60, 506);
+            this.pictureBox1.Location = new System.Drawing.Point(50, 537);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(729, 564);
+            this.pictureBox1.Size = new System.Drawing.Size(653, 515);
             this.pictureBox1.TabIndex = 16;
             this.pictureBox1.TabStop = false;
             // 
             // btnClearRecords
             // 
-            this.btnClearRecords.Location = new System.Drawing.Point(686, 454);
+            this.btnClearRecords.Location = new System.Drawing.Point(600, 488);
             this.btnClearRecords.Name = "btnClearRecords";
             this.btnClearRecords.Size = new System.Drawing.Size(103, 37);
             this.btnClearRecords.TabIndex = 17;
@@ -140,27 +147,53 @@ namespace AimTrainingProgram
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("맑은 고딕", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label1.Location = new System.Drawing.Point(58, 461);
+            this.label1.Location = new System.Drawing.Point(36, 487);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(161, 30);
+            this.label1.Size = new System.Drawing.Size(281, 30);
             this.label1.TabIndex = 18;
-            this.label1.Text = "최근 게임 기록";
+            this.label1.Text = "최근 게임 기록 - Targeting";
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.panel1.Controls.Add(this.chartDifficultyStats);
+            this.panel1.Controls.Add(this.labelRecommendation);
+            this.panel1.Location = new System.Drawing.Point(38, 93);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(989, 364);
+            this.panel1.TabIndex = 19;
+            // 
+            // chartDifficultyStats
+            // 
+            chartArea1.Name = "ChartArea1";
+            this.chartDifficultyStats.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            this.chartDifficultyStats.Legends.Add(legend1);
+            this.chartDifficultyStats.Location = new System.Drawing.Point(421, 32);
+            this.chartDifficultyStats.Name = "chartDifficultyStats";
+            series1.ChartArea = "ChartArea1";
+            series1.Legend = "Legend1";
+            series1.Name = "Series1";
+            this.chartDifficultyStats.Series.Add(series1);
+            this.chartDifficultyStats.Size = new System.Drawing.Size(514, 300);
+            this.chartDifficultyStats.TabIndex = 20;
+            this.chartDifficultyStats.Text = "chart1";
             // 
             // AnalyzeForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1257, 691);
+            this.ClientSize = new System.Drawing.Size(1462, 870);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnClearRecords);
             this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.labelRecommendation);
             this.Controls.Add(this.comboModeSelect);
             this.Controls.Add(this.btnSetting);
             this.Controls.Add(this.btnScore);
             this.Controls.Add(this.btnPlay);
             this.Controls.Add(this.btnHome);
             this.Controls.Add(this.btnBack);
+            this.Controls.Add(this.panel1);
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "AnalyzeForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -168,6 +201,9 @@ namespace AimTrainingProgram
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.AnalyzeForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.chartDifficultyStats)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -185,5 +221,7 @@ namespace AimTrainingProgram
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button btnClearRecords;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.DataVisualization.Charting.Chart chartDifficultyStats;
     }
 }
