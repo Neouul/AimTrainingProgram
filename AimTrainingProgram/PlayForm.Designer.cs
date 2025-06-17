@@ -35,6 +35,7 @@
             this.btnSetting = new System.Windows.Forms.Button();
             this.btnAnalyze = new System.Windows.Forms.Button();
             this.btnScore = new System.Windows.Forms.Button();
+            this.btnNontargeting = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnBack
@@ -69,7 +70,7 @@
             // 
             // btnMoving
             // 
-            this.btnMoving.Location = new System.Drawing.Point(689, 110);
+            this.btnMoving.Location = new System.Drawing.Point(638, 110);
             this.btnMoving.Name = "btnMoving";
             this.btnMoving.Size = new System.Drawing.Size(341, 799);
             this.btnMoving.TabIndex = 3;
@@ -107,11 +108,22 @@
             this.btnScore.UseVisualStyleBackColor = true;
             this.btnScore.Click += new System.EventHandler(this.btnScore_Click);
             // 
+            // btnNontargeting
+            // 
+            this.btnNontargeting.Location = new System.Drawing.Point(1132, 110);
+            this.btnNontargeting.Name = "btnNontargeting";
+            this.btnNontargeting.Size = new System.Drawing.Size(341, 799);
+            this.btnNontargeting.TabIndex = 11;
+            this.btnNontargeting.Text = "Nontargeting Training";
+            this.btnNontargeting.UseVisualStyleBackColor = true;
+            this.btnNontargeting.Click += new System.EventHandler(this.btnNontargeting_Click);
+            // 
             // PlayForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(13F, 24F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1175, 939);
+            this.ClientSize = new System.Drawing.Size(1560, 939);
+            this.Controls.Add(this.btnNontargeting);
             this.Controls.Add(this.btnSetting);
             this.Controls.Add(this.btnAnalyze);
             this.Controls.Add(this.btnScore);
@@ -136,5 +148,6 @@
         private System.Windows.Forms.Button btnSetting;
         private System.Windows.Forms.Button btnAnalyze;
         private System.Windows.Forms.Button btnScore;
+        private System.Windows.Forms.Button btnNontargeting;
     }
 }

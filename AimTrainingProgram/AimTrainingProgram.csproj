@@ -65,6 +65,12 @@
     <Compile Include="MovingForm.Designer.cs">
       <DependentUpon>MovingForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="NonTargetForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NonTargetForm.Designer.cs">
+      <DependentUpon>NonTargetForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="PlayForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -104,6 +110,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MovingForm.resx">
       <DependentUpon>MovingForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NonTargetForm.resx">
+      <DependentUpon>NonTargetForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PlayForm.resx">
       <DependentUpon>PlayForm.cs</DependentUpon>

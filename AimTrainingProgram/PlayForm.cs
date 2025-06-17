@@ -82,6 +82,13 @@ namespace AimTrainingProgram
             settingForm.Show();
             this.Hide();
         }
+
+        private void btnNontargeting_Click(object sender, EventArgs e)
+        {
+            NonTargetForm nonTargetForm = new NonTargetForm();
+            nonTargetForm.Show();
+            this.Hide();
+        }
     }
 
 }
