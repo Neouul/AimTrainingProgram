@@ -423,14 +423,16 @@ namespace AimTrainingProgram
             ScoreData data = new ScoreData
             {
                 Date = DateTime.Now,
-                Score = successes, // 명중 수 (정확한 의미의 "점수")
+                Score = successes,
                 GameSensitivity = SettingForm.GameSensitivity,
                 ControlPanelSpeed = SettingForm.ControlPanelSpeed,
-                Mode = "Moving"
+                Mode = "Moving",
+                Difficulty = SettingForm.SelectedDifficulty.ToString() 
             };
 
             DataManager.SaveScore(data);
         }
+
 
     }
 }

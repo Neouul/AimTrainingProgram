@@ -44,8 +44,9 @@ namespace AimTrainingProgram
             var allScores = DataManager.LoadScores();
 
             var filteredScores = allScores
-                .Where(s => s.Mode == selectedMode)
+                .Where(s => string.Equals(s.Mode?.Trim(), selectedMode, StringComparison.OrdinalIgnoreCase))
                 .ToList();
+
 
             UpdateSensitivityChart(filteredScores);
             UpdateDifficultyChart(filteredScores);
@@ -58,7 +59,7 @@ namespace AimTrainingProgram
             chartSensitivity.Titles.Clear();
 
             chartSensitivity.ChartAreas.Add("MainArea");
-            chartSensitivity.Titles.Add("감도별 평균 명중률");
+            chartSensitivity.Titles.Add("");
         }
 
         private void UpdateSensitivityChart(List<ScoreData> scores)
@@ -125,7 +126,7 @@ namespace AimTrainingProgram
             chartDifficulty.Titles.Clear();
 
             chartDifficulty.ChartAreas.Add("MainArea");
-            chartDifficulty.Titles.Add("난이도별 평균 명중률");
+            chartDifficulty.Titles.Add("");
         }
 
 
