@@ -65,17 +65,20 @@ namespace AimTrainingProgram
 
         private void AnalyzeForm_Load(object sender, EventArgs e)
         {
-            comboModeSelect.SelectedIndex = 0;
-
             comboModeSelect.SelectedIndexChanged += ComboModeSelect_SelectedIndexChanged;
 
-            AnalyzeAndDisplayRecommendation();
+            comboModeSelect.SelectedIndex = 0; // 이 시점에서 SelectedItem이 "Targeting"으로 설정됨
 
-            LoadAnalysisData();
+            // ▼ 이벤트 핸들러 수동 호출로 초기 분석 및 그래프 표시 보장
+            ComboModeSelect_SelectedIndexChanged(this, EventArgs.Empty);
         }
+
+
         private void ComboModeSelect_SelectedIndexChanged(object sender, EventArgs e)
         {
             AnalyzeAndDisplayRecommendation();
+            var scores = DataManager.LoadScores();
+            DisplayDateAverage(scores);
         }
         private void AnalyzeAndDisplayRecommendation()
         {
@@ -292,5 +295,57 @@ namespace AimTrainingProgram
                 AnalyzeHitMap(); // PictureBox 갱신
             }
         }
+
+        private void DisplayDateAverage(List<ScoreData> scores)
+        {
+            string selectedMode = comboModeSelect.SelectedItem?.ToString() ?? "Targeting";
+
+            var filtered = scores
+                .Where(s => s.Mode == selectedMode)
+                .ToList();
+
+            if (filtered.Count == 0)
+            {
+                chartDateScores.Series.Clear();
+                chartDateScores.Titles.Clear();
+                chartDateScores.ChartAreas.Clear();
+                return;
+            }
+
+            // 날짜별 평균 점수 계산 (MM/dd 기준)
+            var grouped = filtered
+                .GroupBy(s => s.Date.ToString("MM/dd"))
+                .OrderBy(g => g.Key)
+                .Select(g => new
+                {
+                    DateLabel = g.Key,
+                    Average = g.Average(s => s.Score)
+                })
+                .ToList();
+
+            // Chart 구성
+            chartDateScores.Series.Clear();
+            chartDateScores.ChartAreas.Clear();
+            chartDateScores.Titles.Clear();
+
+            ChartArea area = new ChartArea("DateArea");
+            area.AxisX.Interval = 1;
+            chartDateScores.ChartAreas.Add(area);
+
+            Series series = new Series("날짜별 평균 점수")
+            {
+                ChartType = SeriesChartType.Column,
+                IsValueShownAsLabel = true
+            };
+
+            foreach (var entry in grouped)
+            {
+                series.Points.AddXY(entry.DateLabel, entry.Average);
+            }
+
+            chartDateScores.Series.Add(series);
+            chartDateScores.Titles.Add($"{selectedMode} 모드 - 날짜별 평균 점수");
+        }
+
     }
 }
