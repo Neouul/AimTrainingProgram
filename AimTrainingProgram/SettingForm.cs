@@ -255,7 +255,5 @@ namespace AimTrainingProgram
                 MessageBox.Show("레지스트리 불러오기 실패: " + ex.Message);
             }
         }
-
-
     }
 }

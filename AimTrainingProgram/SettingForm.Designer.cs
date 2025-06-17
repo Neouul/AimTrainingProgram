@@ -28,11 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.btnHome = new System.Windows.Forms.Button();
-            this.btnBack = new System.Windows.Forms.Button();
-            this.btnAnalyze = new System.Windows.Forms.Button();
-            this.btnScore = new System.Windows.Forms.Button();
-            this.btnPlay = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.PcSens = new System.Windows.Forms.TextBox();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
@@ -46,64 +41,14 @@
             this.radioEasy = new System.Windows.Forms.RadioButton();
             this.radioNormal = new System.Windows.Forms.RadioButton();
             this.radioHard = new System.Windows.Forms.RadioButton();
+            this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
+            this.button4 = new System.Windows.Forms.Button();
+            this.button5 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // btnHome
-            // 
-            this.btnHome.Location = new System.Drawing.Point(7, 8);
-            this.btnHome.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.btnHome.Name = "btnHome";
-            this.btnHome.Size = new System.Drawing.Size(172, 51);
-            this.btnHome.TabIndex = 3;
-            this.btnHome.Text = "홈";
-            this.btnHome.UseVisualStyleBackColor = true;
-            this.btnHome.Click += new System.EventHandler(this.btnHome_Click);
-            // 
-            // btnBack
-            // 
-            this.btnBack.Location = new System.Drawing.Point(654, 8);
-            this.btnBack.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.btnBack.Name = "btnBack";
-            this.btnBack.Size = new System.Drawing.Size(153, 50);
-            this.btnBack.TabIndex = 2;
-            this.btnBack.Text = "뒤로가기";
-            this.btnBack.UseVisualStyleBackColor = true;
-            this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
-            // 
-            // btnAnalyze
-            // 
-            this.btnAnalyze.Location = new System.Drawing.Point(497, 7);
-            this.btnAnalyze.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.btnAnalyze.Name = "btnAnalyze";
-            this.btnAnalyze.Size = new System.Drawing.Size(153, 51);
-            this.btnAnalyze.TabIndex = 9;
-            this.btnAnalyze.Text = "Analyze";
-            this.btnAnalyze.UseVisualStyleBackColor = true;
-            this.btnAnalyze.Click += new System.EventHandler(this.btnAnalyze_Click);
-            // 
-            // btnScore
-            // 
-            this.btnScore.Location = new System.Drawing.Point(340, 8);
-            this.btnScore.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.btnScore.Name = "btnScore";
-            this.btnScore.Size = new System.Drawing.Size(153, 51);
-            this.btnScore.TabIndex = 8;
-            this.btnScore.Text = "Score";
-            this.btnScore.UseVisualStyleBackColor = true;
-            this.btnScore.Click += new System.EventHandler(this.btnScore_Click);
-            // 
-            // btnPlay
-            // 
-            this.btnPlay.Location = new System.Drawing.Point(183, 8);
-            this.btnPlay.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.btnPlay.Name = "btnPlay";
-            this.btnPlay.Size = new System.Drawing.Size(153, 51);
-            this.btnPlay.TabIndex = 7;
-            this.btnPlay.Text = "Play";
-            this.btnPlay.UseVisualStyleBackColor = true;
-            this.btnPlay.Click += new System.EventHandler(this.btnPlay_Click);
             // 
             // label1
             // 
@@ -172,9 +117,9 @@
             this.groupBox1.Controls.Add(this.comboBox1);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Location = new System.Drawing.Point(157, 86);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(2);
             this.groupBox1.Size = new System.Drawing.Size(476, 149);
             this.groupBox1.TabIndex = 16;
             this.groupBox1.TabStop = false;
@@ -198,9 +143,9 @@
             this.groupBox2.Controls.Add(this.radioNormal);
             this.groupBox2.Controls.Add(this.radioHard);
             this.groupBox2.Location = new System.Drawing.Point(157, 249);
-            this.groupBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(2);
             this.groupBox2.Size = new System.Drawing.Size(476, 121);
             this.groupBox2.TabIndex = 17;
             this.groupBox2.TabStop = false;
@@ -209,7 +154,7 @@
             // saveBtn2
             // 
             this.saveBtn2.Location = new System.Drawing.Point(385, 88);
-            this.saveBtn2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.saveBtn2.Margin = new System.Windows.Forms.Padding(2);
             this.saveBtn2.Name = "saveBtn2";
             this.saveBtn2.Size = new System.Drawing.Size(75, 23);
             this.saveBtn2.TabIndex = 21;
@@ -221,7 +166,7 @@
             // 
             this.radioEasy.AutoSize = true;
             this.radioEasy.Location = new System.Drawing.Point(50, 56);
-            this.radioEasy.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.radioEasy.Margin = new System.Windows.Forms.Padding(2);
             this.radioEasy.Name = "radioEasy";
             this.radioEasy.Size = new System.Drawing.Size(58, 19);
             this.radioEasy.TabIndex = 18;
@@ -233,7 +178,7 @@
             // 
             this.radioNormal.AutoSize = true;
             this.radioNormal.Location = new System.Drawing.Point(195, 56);
-            this.radioNormal.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.radioNormal.Margin = new System.Windows.Forms.Padding(2);
             this.radioNormal.Name = "radioNormal";
             this.radioNormal.Size = new System.Drawing.Size(58, 19);
             this.radioNormal.TabIndex = 19;
@@ -245,7 +190,7 @@
             // 
             this.radioHard.AutoSize = true;
             this.radioHard.Location = new System.Drawing.Point(340, 56);
-            this.radioHard.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.radioHard.Margin = new System.Windows.Forms.Padding(2);
             this.radioHard.Name = "radioHard";
             this.radioHard.Size = new System.Drawing.Size(73, 19);
             this.radioHard.TabIndex = 20;
@@ -253,19 +198,76 @@
             this.radioHard.Text = "어려움";
             this.radioHard.UseVisualStyleBackColor = true;
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(419, 11);
+            this.button1.Margin = new System.Windows.Forms.Padding(2);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(130, 47);
+            this.button1.TabIndex = 28;
+            this.button1.Text = "Analyze";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.btnAnalyze_Click);
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(286, 11);
+            this.button2.Margin = new System.Windows.Forms.Padding(2);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(130, 47);
+            this.button2.TabIndex = 27;
+            this.button2.Text = "Score";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.btnScore_Click);
+            // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(152, 11);
+            this.button3.Margin = new System.Windows.Forms.Padding(2);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(130, 47);
+            this.button3.TabIndex = 26;
+            this.button3.Text = "Play";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.btnPlay_Click);
+            // 
+            // button4
+            // 
+            this.button4.BackgroundImage = global::AimTrainingProgram.Properties.Resources.homeicon;
+            this.button4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.button4.Location = new System.Drawing.Point(15, 11);
+            this.button4.Margin = new System.Windows.Forms.Padding(2);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(133, 47);
+            this.button4.TabIndex = 25;
+            this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.btnHome_Click);
+            // 
+            // button5
+            // 
+            this.button5.BackgroundImage = global::AimTrainingProgram.Properties.Resources.backicon;
+            this.button5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.button5.Location = new System.Drawing.Point(553, 11);
+            this.button5.Margin = new System.Windows.Forms.Padding(2);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(132, 47);
+            this.button5.TabIndex = 24;
+            this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.btnBack_Click);
+            // 
             // SettingForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(818, 595);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.button2);
+            this.Controls.Add(this.button3);
+            this.Controls.Add(this.button4);
+            this.Controls.Add(this.button5);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.btnAnalyze);
-            this.Controls.Add(this.btnScore);
-            this.Controls.Add(this.btnPlay);
-            this.Controls.Add(this.btnHome);
-            this.Controls.Add(this.btnBack);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "SettingForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "SettingForm";
@@ -279,12 +281,6 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.Button btnHome;
-        private System.Windows.Forms.Button btnBack;
-        private System.Windows.Forms.Button btnAnalyze;
-        private System.Windows.Forms.Button btnScore;
-        private System.Windows.Forms.Button btnPlay;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox PcSens;
         private System.Windows.Forms.ComboBox comboBox1;
@@ -298,5 +294,10 @@
         private System.Windows.Forms.RadioButton radioNormal;
         private System.Windows.Forms.RadioButton radioHard;
         private System.Windows.Forms.Button saveBtn2;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button button5;
     }
 }

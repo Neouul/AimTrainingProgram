@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Net.Sockets;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -64,15 +65,16 @@ namespace AimTrainingProgram
         }
 
         private void AnalyzeForm_Load(object sender, EventArgs e)
-        {
+        {         
+
             comboModeSelect.SelectedIndexChanged += ComboModeSelect_SelectedIndexChanged;
 
+            AnalyzeAndDisplayRecommendation();
             comboModeSelect.SelectedIndex = 0; // 이 시점에서 SelectedItem이 "Targeting"으로 설정됨
 
             // ▼ 이벤트 핸들러 수동 호출로 초기 분석 및 그래프 표시 보장
             ComboModeSelect_SelectedIndexChanged(this, EventArgs.Empty);
         }
-
 
         private void ComboModeSelect_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -300,9 +302,11 @@ namespace AimTrainingProgram
         {
             string selectedMode = comboModeSelect.SelectedItem?.ToString() ?? "Targeting";
 
+
             var filtered = scores
                 .Where(s => s.Mode == selectedMode)
                 .ToList();
+
 
             if (filtered.Count == 0)
             {
@@ -329,7 +333,9 @@ namespace AimTrainingProgram
             chartDateScores.Titles.Clear();
 
             ChartArea area = new ChartArea("DateArea");
+
             area.AxisX.Interval = 1;
+
             chartDateScores.ChartAreas.Add(area);
 
             Series series = new Series("날짜별 평균 점수")
@@ -343,9 +349,11 @@ namespace AimTrainingProgram
                 series.Points.AddXY(entry.DateLabel, entry.Average);
             }
 
+
             chartDateScores.Series.Add(series);
             chartDateScores.Titles.Add($"{selectedMode} 모드 - 날짜별 평균 점수");
         }
+
 
     }
 }

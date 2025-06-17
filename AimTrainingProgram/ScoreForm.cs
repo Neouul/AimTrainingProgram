@@ -166,6 +166,5 @@ namespace AimTrainingProgram
             settingForm.Show();
             this.Hide();
         }
-
     }
 }

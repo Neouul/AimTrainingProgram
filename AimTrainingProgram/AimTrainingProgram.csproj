@@ -69,6 +69,12 @@
     <Compile Include="MovingForm.Designer.cs">
       <DependentUpon>MovingForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="NontargetingForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NontargetingForm.Designer.cs">
+      <DependentUpon>NontargetingForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="PlayForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -108,6 +114,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MovingForm.resx">
       <DependentUpon>MovingForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NontargetingForm.resx">
+      <DependentUpon>NontargetingForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PlayForm.resx">
       <DependentUpon>PlayForm.cs</DependentUpon>
@@ -153,6 +162,21 @@
     <None Include="Resources\malphite.png" />
     <None Include="Resources\morgana.png" />
     <None Include="Resources\map.png" />
+    <None Include="Resources\main4.png" />
+    <None Include="Resources\main3.png" />
+    <None Include="Resources\main2.png" />
+    <None Include="Resources\main1.png" />
+    <None Include="Resources\mainback.png" />
+    <None Include="Resources\maintitle.png" />
+    <None Include="Resources\is.png" />
+    <None Include="Resources\back4.png" />
+    <None Include="Resources\back3.png" />
+    <None Include="Resources\back2.png" />
+    <None Include="Resources\back1.png" />
+    <None Include="Resources\backblue.png" />
+    <None Include="Resources\backicon.png" />
+    <None Include="Resources\homeblue.png" />
+    <None Include="Resources\homeicon.png" />
     <Content Include="Resources\playBtn.png" />
     <Content Include="Resources\scoreBtn.png" />
     <Content Include="Resources\settingBtn.png" />

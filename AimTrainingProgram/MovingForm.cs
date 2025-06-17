@@ -4,6 +4,7 @@ using System.Windows.Forms;
 
 using System.Collections.Generic;
 using AimTrainingProgram.Data;
+using System.Diagnostics;
 
 namespace AimTrainingProgram
 {
@@ -15,7 +16,7 @@ namespace AimTrainingProgram
         // 게임 상수 설정
         private const int MAX_ATTEMPTS = 10;       // 총 시도 횟수
         private const int BOT_RANGE = 500;     // 발사체 최대 사거리
-        private const int FLASH_DISTANCE = 150;    // 플래시 이동 거리
+        private const int FLASH_DISTANCE = 200;    // 플래시 이동 거리
 
         // 게임 진행 상태 변수
         private int attempts = 0;
@@ -75,6 +76,11 @@ namespace AimTrainingProgram
         public MovingForm(Form previousForm)
         {
             InitializeComponent();
+            this.KeyPreview = true;
+            this.PreviewKeyDown += MovingForm_PreviewKeyDown;
+            this.GotFocus += MovingForm_GotFocus;
+            this.LostFocus += MovingForm_LostFocus;
+
 
             this.WindowState = FormWindowState.Maximized;
             this.DoubleBuffered = true; // 깜빡임 방지
@@ -109,9 +115,9 @@ namespace AimTrainingProgram
             // 발사체 종류 (리소스 이미지 + 속도 설정)
             targetTypes = new List<TargetType>()
             {
-                new TargetType(Properties.Resources.morgana, 10f),
+                new TargetType(Properties.Resources.morgana, 20),
                 //new TargetType(Properties.Resources.blitz, 10f),
-                new TargetType(Properties.Resources.malphite, 15f)
+                new TargetType(Properties.Resources.malphite,30f)
             };
 
             StartGame();
@@ -120,6 +126,15 @@ namespace AimTrainingProgram
 
         public MovingForm() : this(null) { }
 
+        private void MovingForm_GotFocus(object sender, EventArgs e)
+        {
+            Debug.WriteLine("폼이 키보드 포커스 얻음");
+        }
+
+        private void MovingForm_LostFocus(object sender, EventArgs e)
+        {
+            Debug.WriteLine("폼이 키보드 포커스 잃음");
+        }
         // 게임 초기화 시작
         private void StartGame()
         {
@@ -190,12 +205,16 @@ namespace AimTrainingProgram
 
             Invalidate();  // 화면 다시 그리기 요청
 
-            // 발사체 충돌 판정 (오른쪽 위 꼭짓점 기준)
-            int projWidth = (int)(currentTarget.Image.Width * projectileScale);
-            int projHeight = (int)(currentTarget.Image.Height * projectileScale);
-            PointF topRight = new PointF(projectilePosition.X + projWidth, projectilePosition.Y);
+            // 발사체 바운딩 박스 계산
+            Rectangle projectileRect = new Rectangle(
+                (int)projectilePosition.X,
+                (int)projectilePosition.Y,
+                (int)(currentTarget.Image.Width * projectileScale),
+                (int)(currentTarget.Image.Height * projectileScale)
+            );
 
-            if (player.Bounds.Contains(Point.Round(topRight)))
+            // 충돌 판정 (BoundingBox vs BoundingBox)
+            if (player.Bounds.IntersectsWith(projectileRect))
             {
                 projectileTimer.Stop();
                 isProjectileActive = false;
@@ -205,6 +224,7 @@ namespace AimTrainingProgram
                 return;
             }
 
+            // 사거리 벗어났는지 검사
             if (Distance(botLocation, Point.Round(projectilePosition)) > BOT_RANGE)
             {
                 projectileTimer.Stop();
@@ -216,6 +236,7 @@ namespace AimTrainingProgram
                 return;
             }
         }
+        
 
         private void NextAttempt()
         {
@@ -290,6 +311,8 @@ namespace AimTrainingProgram
 
         private void MovingForm_MouseClick(object sender, MouseEventArgs e)
         {
+            this.ActiveControl = null;  // <- 이거 넣자. 핵심 한방
+
             if (gameOver) return;
 
             Point clientPos = this.PointToClient(Cursor.Position);
@@ -299,6 +322,14 @@ namespace AimTrainingProgram
             if (!playerMoveTimer.Enabled)
                 playerMoveTimer.Start();
         }
+
+        protected override void OnShown(EventArgs e)
+        {
+            base.OnShown(e);
+            this.Focus();
+
+        }
+
 
         private void PlayerMoveTimer_Tick(object sender, EventArgs e)
         {
@@ -339,25 +370,16 @@ namespace AimTrainingProgram
             return (value < min) ? min : value > max ? max : value;
         }
 
-        // 키보드 단축키 (플래시 이동)
-        protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
-        {
-            if (gameOver) return base.ProcessCmdKey(ref msg, keyData);
-            if (keyData == Keys.D || keyData == Keys.F)
-            {
-                Flash();
-                return true;
-            }
-            return base.ProcessCmdKey(ref msg, keyData);
-        }
 
         private void Flash()
         {
+
+
             int dx = playerTargetPosition.X - player.Location.X;
             int dy = playerTargetPosition.Y - player.Location.Y;
             double distance = Math.Sqrt(dx * dx + dy * dy);
 
-            if (distance == 0) return;
+            if (distance == 0) return;  
 
             int moveX = (int)((dx / distance) * FLASH_DISTANCE);
             int moveY = (int)((dy / distance) * FLASH_DISTANCE);
@@ -446,6 +468,7 @@ namespace AimTrainingProgram
             this.Close();
         }
 
+
         private void btnHome_Click(object sender, EventArgs e)
         {
             new MainForm().Show();
@@ -484,6 +507,16 @@ namespace AimTrainingProgram
         private void MovingForm_Load(object sender, EventArgs e)
         {
             // 폼 로드 시 초기화 코드(필요시)
+        }
+
+        private void MovingForm_PreviewKeyDown(object sender, PreviewKeyDownEventArgs e)
+        {
+            if (gameOver) return;
+
+            if (e.KeyCode == Keys.D || e.KeyCode == Keys.F)
+            {
+                Flash();
+            }
         }
     }
 }

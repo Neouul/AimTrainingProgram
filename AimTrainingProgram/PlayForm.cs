@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -116,6 +116,13 @@ namespace AimTrainingProgram
         {
             SettingForm settingForm = new SettingForm(this);
             settingForm.Show();
+            this.Hide();
+        }
+
+        private void btnNontargeting_Click(object sender, EventArgs e)
+        {
+            NontargetingForm nontargetingForm = new NontargetingForm(this);
+            nontargetingForm.Show();
             this.Hide();
         }
     }
