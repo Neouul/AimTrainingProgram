@@ -110,10 +110,7 @@ namespace AimTrainingProgram
 
         private void MoveBotToRandomPosition()
         {
-            // 플레이어 주변 Q 사정거리 내 랜덤 위치 즉시 생성
             bot.Location = GetRandomPositionInRange(player.Location, BLITZ_Q_RANGE);
-
-            // 0.5~1초 후 발사
             shootDelayTimer.Stop();
             shootDelayTimer.Interval = rand.Next(500, 1000);
             shootDelayTimer.Start();
