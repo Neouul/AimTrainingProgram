@@ -48,9 +48,10 @@
             // 
             // btnHome
             // 
-            this.btnHome.Location = new System.Drawing.Point(12, 12);
+            this.btnHome.Location = new System.Drawing.Point(7, 8);
+            this.btnHome.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnHome.Name = "btnHome";
-            this.btnHome.Size = new System.Drawing.Size(216, 75);
+            this.btnHome.Size = new System.Drawing.Size(133, 47);
             this.btnHome.TabIndex = 7;
             this.btnHome.Text = "홈";
             this.btnHome.UseVisualStyleBackColor = true;
@@ -58,9 +59,10 @@
             // 
             // btnBack
             // 
-            this.btnBack.Location = new System.Drawing.Point(1102, 12);
+            this.btnBack.Location = new System.Drawing.Point(678, 8);
+            this.btnBack.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnBack.Name = "btnBack";
-            this.btnBack.Size = new System.Drawing.Size(214, 75);
+            this.btnBack.Size = new System.Drawing.Size(132, 47);
             this.btnBack.TabIndex = 6;
             this.btnBack.Text = "뒤로가기";
             this.btnBack.UseVisualStyleBackColor = true;
@@ -68,9 +70,10 @@
             // 
             // btnSetting
             // 
-            this.btnSetting.Location = new System.Drawing.Point(885, 12);
+            this.btnSetting.Location = new System.Drawing.Point(545, 8);
+            this.btnSetting.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnSetting.Name = "btnSetting";
-            this.btnSetting.Size = new System.Drawing.Size(211, 75);
+            this.btnSetting.Size = new System.Drawing.Size(130, 47);
             this.btnSetting.TabIndex = 11;
             this.btnSetting.Text = "Settings";
             this.btnSetting.UseVisualStyleBackColor = true;
@@ -78,9 +81,10 @@
             // 
             // btnAnalyze
             // 
-            this.btnAnalyze.Location = new System.Drawing.Point(668, 12);
+            this.btnAnalyze.Location = new System.Drawing.Point(411, 8);
+            this.btnAnalyze.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnAnalyze.Name = "btnAnalyze";
-            this.btnAnalyze.Size = new System.Drawing.Size(211, 75);
+            this.btnAnalyze.Size = new System.Drawing.Size(130, 47);
             this.btnAnalyze.TabIndex = 10;
             this.btnAnalyze.Text = "Analyze";
             this.btnAnalyze.UseVisualStyleBackColor = true;
@@ -88,9 +92,10 @@
             // 
             // btnScore
             // 
-            this.btnScore.Location = new System.Drawing.Point(451, 12);
+            this.btnScore.Location = new System.Drawing.Point(278, 8);
+            this.btnScore.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnScore.Name = "btnScore";
-            this.btnScore.Size = new System.Drawing.Size(211, 75);
+            this.btnScore.Size = new System.Drawing.Size(130, 47);
             this.btnScore.TabIndex = 9;
             this.btnScore.Text = "Score";
             this.btnScore.UseVisualStyleBackColor = true;
@@ -98,9 +103,10 @@
             // 
             // btnPlay
             // 
-            this.btnPlay.Location = new System.Drawing.Point(234, 12);
+            this.btnPlay.Location = new System.Drawing.Point(144, 8);
+            this.btnPlay.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnPlay.Name = "btnPlay";
-            this.btnPlay.Size = new System.Drawing.Size(211, 75);
+            this.btnPlay.Size = new System.Drawing.Size(130, 47);
             this.btnPlay.TabIndex = 8;
             this.btnPlay.Text = "Play";
             this.btnPlay.UseVisualStyleBackColor = true;
@@ -108,9 +114,10 @@
             // 
             // btnRestart
             // 
-            this.btnRestart.Location = new System.Drawing.Point(1322, 14);
+            this.btnRestart.Location = new System.Drawing.Point(814, 9);
+            this.btnRestart.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnRestart.Name = "btnRestart";
-            this.btnRestart.Size = new System.Drawing.Size(211, 73);
+            this.btnRestart.Size = new System.Drawing.Size(130, 46);
             this.btnRestart.TabIndex = 23;
             this.btnRestart.Text = "Replay";
             this.btnRestart.UseVisualStyleBackColor = true;
@@ -120,18 +127,17 @@
             // 
             this.lblScore.AutoSize = true;
             this.lblScore.Font = new System.Drawing.Font("굴림", 20F);
-            this.lblScore.Location = new System.Drawing.Point(14, 120);
-            this.lblScore.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.lblScore.Location = new System.Drawing.Point(9, 75);
             this.lblScore.Name = "lblScore";
-            this.lblScore.Size = new System.Drawing.Size(305, 54);
+            this.lblScore.Size = new System.Drawing.Size(192, 34);
             this.lblScore.TabIndex = 22;
             this.lblScore.Text = "MoveScore";
             // 
             // MousePointer
             // 
             this.MousePointer.Image = global::AimTrainingProgram.Properties.Resources.pointer;
-            this.MousePointer.Location = new System.Drawing.Point(105, 841);
-            this.MousePointer.Margin = new System.Windows.Forms.Padding(8);
+            this.MousePointer.Location = new System.Drawing.Point(65, 526);
+            this.MousePointer.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.MousePointer.Name = "MousePointer";
             this.MousePointer.Size = new System.Drawing.Size(29, 47);
             this.MousePointer.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -143,10 +149,10 @@
             // target
             // 
             this.target.Image = global::AimTrainingProgram.Properties.Resources.target;
-            this.target.Location = new System.Drawing.Point(21, 808);
-            this.target.Margin = new System.Windows.Forms.Padding(8);
+            this.target.Location = new System.Drawing.Point(13, 505);
+            this.target.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.target.Name = "target";
-            this.target.Size = new System.Drawing.Size(81, 80);
+            this.target.Size = new System.Drawing.Size(50, 50);
             this.target.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.target.TabIndex = 20;
             this.target.TabStop = false;
@@ -154,9 +160,10 @@
             // player
             // 
             this.player.Image = global::AimTrainingProgram.Properties.Resources.player;
-            this.player.Location = new System.Drawing.Point(732, 352);
+            this.player.Location = new System.Drawing.Point(450, 220);
+            this.player.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.player.Name = "player";
-            this.player.Size = new System.Drawing.Size(119, 124);
+            this.player.Size = new System.Drawing.Size(73, 78);
             this.player.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.player.TabIndex = 24;
             this.player.TabStop = false;
@@ -164,18 +171,19 @@
             // bot
             // 
             this.bot.Image = global::AimTrainingProgram.Properties.Resources.bot;
-            this.bot.Location = new System.Drawing.Point(205, 396);
+            this.bot.Location = new System.Drawing.Point(126, 248);
+            this.bot.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.bot.Name = "bot";
-            this.bot.Size = new System.Drawing.Size(114, 124);
+            this.bot.Size = new System.Drawing.Size(70, 78);
             this.bot.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.bot.TabIndex = 27;
             this.bot.TabStop = false;
             // 
             // MovingForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(13F, 24F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1634, 921);
+            this.ClientSize = new System.Drawing.Size(1006, 576);
             this.Controls.Add(this.bot);
             this.Controls.Add(this.player);
             this.Controls.Add(this.btnRestart);
@@ -188,6 +196,7 @@
             this.Controls.Add(this.btnPlay);
             this.Controls.Add(this.btnHome);
             this.Controls.Add(this.btnBack);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "MovingForm";
             this.Text = "MovingForm";
             this.Load += new System.EventHandler(this.MovingForm_Load);
