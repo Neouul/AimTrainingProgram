@@ -1,41 +1,40 @@
-﻿using AimTrainingProgram.Data;
-using System;
+﻿using System;
 using System.Drawing;
 using System.Windows.Forms;
+
+using System.Collections.Generic;
+using AimTrainingProgram.Data;
 
 namespace AimTrainingProgram
 {
     public partial class MovingForm : Form
     {
-        // --- 추가된 필드 ---
+
         private Form previousForm;
 
-        // 게임 설정
-        private const int MAX_ATTEMPTS = 10;
-        private const float BLITZ_Q_SPEED = 12f;
-        private const int BLITZ_Q_RANGE = 350;
-        private const int FLASH_DISTANCE = 150;
+        // 게임 상수 설정
+        private const int MAX_ATTEMPTS = 10;       // 총 시도 횟수
+        private const int BOT_RANGE = 500;     // 발사체 최대 사거리
+        private const int FLASH_DISTANCE = 150;    // 플래시 이동 거리
 
-        // 게임 상태
+        // 게임 진행 상태 변수
         private int attempts = 0;
         private int successes = 0;
         private bool isProjectileActive = false;
         private bool gameOver = false;
 
-        // 발사체 관련
+        // 발사체 이동 및 회전 관련 변수
         private PointF projectileDirection;
         private Timer projectileTimer = new Timer();
         private Timer shootDelayTimer = new Timer();
 
-        // 플레이어 이동
+        // 플레이어 이동 관련 변수
         private Point playerTargetPosition;
         private Timer playerMoveTimer;
         private int playerMoveSpeed = 8;
 
-        // 기타
+        // 기타 랜덤 및 마우스 입력 처리
         private Random rand = new Random();
-
-        // 커스텀 포인터 관련 필드 (필요시)
         private Point lastMousePos;
         private Point pointerPosition = Point.Empty;
         private Bitmap pointerBitmap = Properties.Resources.pointer;
@@ -43,23 +42,50 @@ namespace AimTrainingProgram
         private float accumulatedDx = 0;
         private float accumulatedDy = 0;
 
-        // --- 생성자 ---
+        // 발사체 위치 및 회전각
+        private PointF projectilePosition;
+        private float projectileAngle;
+
+        // 발사체 타입 정의 (속도 + 이미지 매핑)
+        private class TargetType
+        {
+            public Image Image { get; set; }
+            public float Speed { get; set; }
+
+            public TargetType(Image image, float speed)
+            {
+                Image = image;
+                Speed = speed;
+            }
+        }
+
+        private List<TargetType> targetTypes;
+        private TargetType currentTarget;
+
+        // Bot 관련
+        private Point botLocation;
+        private Bitmap botImage = Properties.Resources.bot;   // bot 이미지 리소스 적용
+        private int botWidth = 80;
+        private int botHeight = 80;
+
+        // 발사체 크기 조절 스케일 (원하는 비율로 조정 가능)
+        private float projectileScale = 0.2f;
+
+        // 생성자: 폼 초기화 및 이벤트 핸들러 연결
         public MovingForm(Form previousForm)
         {
             InitializeComponent();
 
             this.WindowState = FormWindowState.Maximized;
-            this.DoubleBuffered = true;
+            this.DoubleBuffered = true; // 깜빡임 방지
             this.KeyPreview = true;
             this.AutoValidate = AutoValidate.Disable;
             this.FormClosing += MovingForm_FormClosing;
 
-            // 플레이어 초기 위치
             player.Location = new Point(ClientSize.Width / 2, ClientSize.Height / 2);
             playerTargetPosition = player.Location;
 
-            // 타이머 설정
-            projectileTimer.Interval = 16;
+            projectileTimer.Interval = 16; // 약 60FPS
             projectileTimer.Tick += ProjectileTimer_Tick;
 
             shootDelayTimer.Interval = rand.Next(100, 500);
@@ -69,20 +95,24 @@ namespace AimTrainingProgram
             playerMoveTimer.Interval = 20;
             playerMoveTimer.Tick += PlayerMoveTimer_Tick;
 
-            target.Visible = false;
-
-            // 커스텀 포인터
+            // 커스텀 마우스 포인터 설정
             Point center = new Point(this.ClientSize.Width / 2, this.ClientSize.Height / 2);
             pointerPosition = new Point(center.X - 20, center.Y - 20);
             lastMousePos = center;
             this.MouseMove += SensInScreen;
             this.Paint += MovingForm_Paint;
             HideCursor();
-
-            // 마우스 클릭 이동
             this.MouseClick += MovingForm_MouseClick;
 
             btnRestart.Click += btnRestart_Click_1;
+
+            // 발사체 종류 (리소스 이미지 + 속도 설정)
+            targetTypes = new List<TargetType>()
+            {
+                new TargetType(Properties.Resources.morgana, 10f),
+                //new TargetType(Properties.Resources.blitz, 10f),
+                new TargetType(Properties.Resources.malphite, 15f)
+            };
 
             StartGame();
             this.previousForm = previousForm;
@@ -90,6 +120,7 @@ namespace AimTrainingProgram
 
         public MovingForm() : this(null) { }
 
+        // 게임 초기화 시작
         private void StartGame()
         {
             attempts = 0;
@@ -106,15 +137,12 @@ namespace AimTrainingProgram
             player.Location = new Point(ClientSize.Width / 2, ClientSize.Height / 2);
             playerTargetPosition = player.Location;
             MoveBotToRandomPosition();
-            target.Visible = false;
         }
 
+        // Bot 랜덤 위치 배치 (플레이어 기준)
         private void MoveBotToRandomPosition()
         {
-            // 플레이어 주변 Q 사정거리 내 랜덤 위치 즉시 생성
-            bot.Location = GetRandomPositionInRange(player.Location, BLITZ_Q_RANGE);
-
-            // 0.5~1초 후 발사
+            botLocation = GetRandomPositionInRange(player.Location, BOT_RANGE);
             shootDelayTimer.Stop();
             shootDelayTimer.Interval = rand.Next(500, 1000);
             shootDelayTimer.Start();
@@ -126,21 +154,27 @@ namespace AimTrainingProgram
             StartProjectile();
         }
 
+        // 발사체 시작 (방향 및 각도 계산)
         private void StartProjectile()
         {
             if (gameOver) return;
 
-            target.Location = bot.Location;
-            target.Visible = true;
+            currentTarget = targetTypes[rand.Next(targetTypes.Count)];
+            projectilePosition = botLocation;
 
-            Point start = bot.Location;
-            Point targetPos = player.Location;
-
-            float dx = targetPos.X - start.X;
-            float dy = targetPos.Y - start.Y;
+            float dx = player.Location.X - botLocation.X;
+            float dy = player.Location.Y - botLocation.Y;
             float distance = (float)Math.Sqrt(dx * dx + dy * dy);
 
+            // 단위 벡터 (방향 벡터)
             projectileDirection = new PointF(dx / distance, dy / distance);
+
+            // 회전 각도 계산 (중앙 기준 회전)
+            // 1단계: 기본 방향 계산
+            projectileAngle = (float)(Math.Atan2(dy, dx) * 180 / Math.PI);
+
+            // 2단계: 시계방향으로 45도 추가
+            projectileAngle += 45f;
 
             isProjectileActive = true;
             projectileTimer.Start();
@@ -150,20 +184,20 @@ namespace AimTrainingProgram
         {
             if (gameOver) return;
 
-            float newX = target.Location.X + projectileDirection.X * BLITZ_Q_SPEED;
-            float newY = target.Location.Y + projectileDirection.Y * BLITZ_Q_SPEED;
+            // 발사체 이동 (속도 적용)
+            projectilePosition.X += projectileDirection.X * currentTarget.Speed;
+            projectilePosition.Y += projectileDirection.Y * currentTarget.Speed;
 
-            // 화면 경계 제한
-            newX = Clamp((int)newX, 0, ClientSize.Width - target.Width);
-            newY = Clamp((int)newY, 100, ClientSize.Height - target.Height);
+            Invalidate();  // 화면 다시 그리기 요청
 
-            target.Location = new Point((int)newX, (int)newY);
+            // 발사체 충돌 판정 (오른쪽 위 꼭짓점 기준)
+            int projWidth = (int)(currentTarget.Image.Width * projectileScale);
+            int projHeight = (int)(currentTarget.Image.Height * projectileScale);
+            PointF topRight = new PointF(projectilePosition.X + projWidth, projectilePosition.Y);
 
-            // 충돌 체크
-            if (target.Bounds.IntersectsWith(player.Bounds))
+            if (player.Bounds.Contains(Point.Round(topRight)))
             {
                 projectileTimer.Stop();
-                target.Visible = false;
                 isProjectileActive = false;
                 attempts++;
                 UpdateScoreDisplay();
@@ -171,11 +205,9 @@ namespace AimTrainingProgram
                 return;
             }
 
-            // Q가 사정거리 벗어나면 성공
-            if (Distance(bot.Location, target.Location) > BLITZ_Q_RANGE)
+            if (Distance(botLocation, Point.Round(projectilePosition)) > BOT_RANGE)
             {
                 projectileTimer.Stop();
-                target.Visible = false;
                 isProjectileActive = false;
                 attempts++;
                 successes++;
@@ -203,11 +235,29 @@ namespace AimTrainingProgram
             isProjectileActive = false;
             gameOver = true;
             btnRestart.Enabled = true;
+
             SaveScoreData();
+            
             MessageBox.Show($"게임 종료! 성공: {successes}/{MAX_ATTEMPTS}");
         }
 
-        private void btnRestart_Click_1(object sender, EventArgs e) // 추가
+        private void SaveScoreData()
+        {
+            ScoreData data = new ScoreData
+            {
+                Date = DateTime.Now,
+                Score = successes,
+                GameSensitivity = SettingForm.GameSensitivity,
+                ControlPanelSpeed = SettingForm.ControlPanelSpeed,
+                Mode = "Moving",
+                Difficulty = SettingForm.SelectedDifficulty.ToString() 
+            };
+
+            DataManager.SaveScore(data);
+        }
+
+
+        private void btnRestart_Click_1(object sender, EventArgs e)
         {
             if (!gameOver) return;
             StartGame();
@@ -218,6 +268,7 @@ namespace AimTrainingProgram
             lblScore.Text = $"{successes}/{MAX_ATTEMPTS}";
         }
 
+        // 플레이어 주변 원형 범위 내 랜덤 위치 반환
         private Point GetRandomPositionInRange(Point center, int range)
         {
             int angle = rand.Next(0, 360);
@@ -225,8 +276,8 @@ namespace AimTrainingProgram
 
             int x = center.X + (int)(distance * Math.Cos(angle * Math.PI / 180));
             int y = center.Y + (int)(distance * Math.Sin(angle * Math.PI / 180));
-            x = Clamp(x, 0, ClientSize.Width - bot.Width);
-            y = Clamp(y, 100, ClientSize.Height - bot.Height);
+            x = Clamp(x, 0, ClientSize.Width - botWidth);
+            y = Clamp(y, 100, ClientSize.Height - botHeight);
             return new Point(x, y);
         }
 
@@ -288,7 +339,7 @@ namespace AimTrainingProgram
             return (value < min) ? min : value > max ? max : value;
         }
 
-        // 점멸 기능 (D/F 키)
+        // 키보드 단축키 (플래시 이동)
         protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
         {
             if (gameOver) return base.ProcessCmdKey(ref msg, keyData);
@@ -316,15 +367,32 @@ namespace AimTrainingProgram
             playerTargetPosition = player.Location;
         }
 
-        // 커스텀 포인터 등
+        // 핵심 GDI+ 수동 드로잉
         private void MovingForm_Paint(object sender, PaintEventArgs e)
         {
+            // 커스텀 마우스 포인터 그리기
             int originalW = pointerBitmap.Width;
             int originalH = pointerBitmap.Height;
             float scale = 0.8f;
             int newW = (int)(originalW * scale);
             int newH = (int)(originalH * scale);
             e.Graphics.DrawImage(pointerBitmap, pointerPosition.X, pointerPosition.Y, newW, newH);
+
+            // Bot 이미지 그리기
+            e.Graphics.DrawImage(botImage, botLocation.X, botLocation.Y, botWidth, botHeight);
+
+            // 발사체 그리기 (회전 포함)
+            if (isProjectileActive && currentTarget != null)
+            {
+                int projWidth = (int)(currentTarget.Image.Width * projectileScale);
+                int projHeight = (int)(currentTarget.Image.Height * projectileScale);
+
+                e.Graphics.TranslateTransform(projectilePosition.X + projWidth / 2, projectilePosition.Y + projHeight / 2);
+                e.Graphics.RotateTransform(projectileAngle);
+                e.Graphics.TranslateTransform(-projWidth / 2, -projHeight / 2);
+                e.Graphics.DrawImage(currentTarget.Image, 0, 0, projWidth, projHeight);
+                e.Graphics.ResetTransform();
+            }
         }
 
         private void SensInScreen(object sender, MouseEventArgs e)
@@ -359,7 +427,6 @@ namespace AimTrainingProgram
             this.Cursor = transparentCursor;
         }
 
-        // 폼이 닫힐 때 모든 타이머 Dispose 및 완전 종료
         private void MovingForm_FormClosing(object sender, FormClosingEventArgs e)
         {
             projectileTimer.Dispose();
@@ -367,6 +434,7 @@ namespace AimTrainingProgram
             playerMoveTimer.Dispose();
             Application.Exit();
         }
+
 
         // ---- 기존 버튼 이벤트 핸들러 ----
         private void btnBack_Click(object sender, EventArgs e)
@@ -417,22 +485,5 @@ namespace AimTrainingProgram
         {
             // 폼 로드 시 초기화 코드(필요시)
         }
-
-        private void SaveScoreData()
-        {
-            ScoreData data = new ScoreData
-            {
-                Date = DateTime.Now,
-                Score = successes,
-                GameSensitivity = SettingForm.GameSensitivity,
-                ControlPanelSpeed = SettingForm.ControlPanelSpeed,
-                Mode = "Moving",
-                Difficulty = SettingForm.SelectedDifficulty.ToString() 
-            };
-
-            DataManager.SaveScore(data);
-        }
-
-
     }
 }
